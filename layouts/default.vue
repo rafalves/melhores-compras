@@ -1,24 +1,37 @@
 <template>
-  <div class="bg-sky-400 w-screen h-18 py-4 shadow-xl flex align-items-center">
+  <div class="bg-sky-400 w-screen h-18 py-4 shadow-xl flex">
     <div class="w-2/3 mx-auto">
       <header>
         <nav class="mx-auto flex justify-between items-center">
-          <div class="">
-            <NuxtLink to="/" class="flex hover:text-purple-900">
-              <i class="material-icons">workspace_premium</i
-              >Melhores-Compras.Online</NuxtLink
-            >
-            <p></p>
-          </div>
+          <NuxtLink to="/" class="flex hover:text-purple-900">
+            <i class="material-icons">workspace_premium</i
+            >Melhores-Compras.Online</NuxtLink
+          >
           <div>
             <ul class="flex gap-4 uppercase text-xs font-semibold">
-              <li class="hover:text-purple-900 cursor-pointer">iPhone</li>
-              <li class="hover:text-purple-900 cursor-pointer">android</li>
-              <li class="hover:text-purple-900 cursor-pointer">eletrônicos</li>
-              <li class="hover:text-purple-900 cursor-pointer">
+              <li
+                class="hover:text-purple-900 cursor-pointer hover:underline hover:underline-offset-4"
+              >
+                iPhone
+              </li>
+              <li
+                class="hover:text-purple-900 cursor-pointer hover:underline hover:underline-offset-4"
+              >
+                android
+              </li>
+              <li
+                class="hover:text-purple-900 cursor-pointer hover:underline hover:underline-offset-4"
+              >
+                eletrônicos
+              </li>
+              <li
+                class="hover:text-purple-900 cursor-pointer hover:underline hover:underline-offset-4"
+              >
                 eletrodomésticos
               </li>
-              <li class="hover:text-purple-900 cursor-pointer">
+              <li
+                class="hover:text-purple-900 cursor-pointer hover:underline hover:underline-offset-4"
+              >
                 coisas da china
               </li>
             </ul>
@@ -32,13 +45,16 @@
     <!-- content goes here -->
     <slot />
   </div>
-  <div class="bg-sky-400 fixed bottom-0 w-full h-20">
-    <footer class="w-2/3 mx-auto flex justify-between shadow-inner">
-      <ul class="flex gap-4">
-        <li><NuxtLink to="/">Home</NuxtLink></li>
-        <li><NuxtLink to="/about">About</NuxtLink></li>
-        <li><NuxtLink to="/products">Products</NuxtLink></li>
-      </ul>
+  <div class="bg-sky-400 fixed bottom-0 w-full h-28 flex items-center">
+    <footer class="w-2/3 mx-auto text-center">
+      <p class="font-thin">
+        Somos um site especializado em reviews e recomendações de produtos, aqui
+        vocês encontrarão boas promoções. Caso comprem algum produto através do
+        site, nós podemos ganhar uma pequena comissão ;)
+      </p>
+      <span class="text-xs font-semibold">
+        &copy; Copyright 2023 | Melhores-Compras.Online
+      </span>
     </footer>
   </div>
 </template>
