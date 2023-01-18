@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white h-screen">Test</div>
+  <div class="bg-white h-screen w-2/3 mx-auto">Test</div>
 </template>
 
 <script>
