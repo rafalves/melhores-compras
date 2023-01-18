@@ -5,8 +5,8 @@
         <nav class="mx-auto flex justify-between items-center">
           <NuxtLink to="/" class="flex hover:text-purple-900">
             <i class="material-icons">workspace_premium</i
-            >Melhores-Compras.Online</NuxtLink
-          >
+            >Melhores-Compras.Online
+          </NuxtLink>
           <div>
             <ul class="flex gap-4 uppercase text-xs font-semibold">
               <li
