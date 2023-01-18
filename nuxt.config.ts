@@ -1,8 +1,22 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["@nuxtjs/tailwindcss"],
-  // tailwindcss: {
-  // Options if need to add fonts
-  // },
   ssr: false,
+  modules: ["@nuxtjs/tailwindcss"],
+  app: {
+    head: {
+      title: "Melhores-Compras.Online",
+      meta: [
+        {
+          name: "description",
+          content: "Análise, Promoção e Informação",
+        },
+      ],
+      link: [
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/icon?family=Material+Icons",
+        },
+      ],
+    },
+  },
 });
