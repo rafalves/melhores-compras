@@ -1,7 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  //ssr: false,
-  modules: ["@nuxtjs/tailwindcss"],
+  telemetry: false,
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/content"],
+  content: {
+    navigation: {
+      fields: ["article", "createdAt", "updatedAt", "image"],
+    },
+  },
   app: {
     head: {
       title: "Melhores-Compras.Online",
