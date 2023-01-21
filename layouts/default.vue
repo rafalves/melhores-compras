@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-sky-400 w-screen h-18 py-4 shadow-xl flex">
+  <div class="bg-sky-400 w-full h-18 py-4 shadow-xl flex">
     <div class="w-2/3 mx-auto">
       <header>
         <nav class="mx-auto flex justify-between items-center">
@@ -45,7 +45,8 @@
     <!-- content goes here -->
     <slot />
   </div>
-  <div class="bg-sky-400 fixed bottom-0 w-full h-28 flex items-center">
+
+  <div class="bg-sky-400 bottom-0 w-full h-28 flex items-center">
     <footer class="w-2/3 mx-auto text-center">
       <p class="font-thin">
         Somos um site especializado em reviews e recomendações de produtos, aqui
