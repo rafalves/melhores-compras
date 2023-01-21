@@ -2,6 +2,11 @@
 export default defineNuxtConfig({
   telemetry: false,
   modules: ["@nuxtjs/tailwindcss", "@nuxt/content"],
+  content: {
+    navigation: {
+      fields: ["article", "createdAt", "updatedAt", "image"],
+    },
+  },
   app: {
     head: {
       title: "Melhores-Compras.Online",

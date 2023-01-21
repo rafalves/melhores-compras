@@ -14,12 +14,7 @@
           v-for="(article, index) in articles[0].children"
           :key="`blogArticle-${article}-${index}`"
         >
-          <div>
-            <ContentDoc
-              class="prose-lg"
-              path="/artigos/animais/melhores-racoes-para-cachorro-2023"
-            />
-          </div>
+          <div></div>
         </template>
       </div>
     </section>
