@@ -41,12 +41,12 @@
     </div>
   </div>
 
-  <div class="my-10">
+  <div class="my-5 min-h-screen">
     <!-- content goes here -->
     <slot />
   </div>
 
-  <div class="bg-sky-400 bottom-0 w-full h-28 flex items-center">
+  <div class="bg-sky-400 bottom-0 w-full h-28 flex items-center shadow-xl">
     <footer class="w-2/3 mx-auto text-center">
       <p class="font-thin">
         Somos um site especializado em reviews e recomendações de produtos, aqui
