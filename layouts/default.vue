@@ -1,6 +1,6 @@
 <template>
   <div id="box" class="flex flex-col height">
-    <div id="header" class="flex-none bg-sky-400 w-full h-18 py-4 shadow-xl">
+    <div id="header" class="flex-none bg-sky-400 w-full py-4 shadow-xl">
       <div class="w-2/3 mx-auto">
         <header>
           <nav class="mx-auto flex justify-between items-center">
@@ -49,7 +49,7 @@
 
     <div
       id="footer"
-      class="flex-none flex shrink-0 bg-sky-400 bottom-0 w-full h-28 items-center"
+      class="flex-none flex bg-sky-400 bottom-0 w-full items-center py-5"
     >
       <footer class="w-2/3 mx-auto text-center">
         <p class="font-thin">

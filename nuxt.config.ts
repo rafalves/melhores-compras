@@ -4,7 +4,15 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss", "@nuxt/content"],
   content: {
     navigation: {
-      fields: ["article", "createdAt", "updatedAt", "image"],
+      fields: [
+        "article",
+        "createdAt",
+        "updatedAt",
+        "image",
+        "alt",
+        "tags",
+        "description",
+      ],
     },
   },
   app: {
