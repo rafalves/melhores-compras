@@ -14,10 +14,12 @@
     "@nuxt/image-edge": "^1.0.0-27840416.dc1ed65",
     "@nuxtjs/tailwindcss": "^6.2.0",
     "@tailwindcss/typography": "^0.5.9",
-    "ipx": "^1.0.0-2",
     "nuxt": "^3.0.0",
     "postcss": "^8.4.21",
     "std-env": "^3.3.1",
     "sharp": "^0.31.3"
+  },
+  "dependencies": {
+    "ipx": "^1.0.0-2"
   }
 }
