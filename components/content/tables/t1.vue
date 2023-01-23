@@ -83,7 +83,7 @@ export default {
       <tr class="px-4 flex items-center py-0 border-b hover:bg-slate-100">
         <td class="flex-none font-extrabold">{{ index + 1 }}°</td>
         <td>
-          <nuxt-img fit="cover" :src="row.imageLink" width="60" height="60" />
+          <img fit="cover" :src="row.imageLink" width="60" height="60" />
         </td>
         <td class="flex-1 grow text-left">
           {{ row.name }}
