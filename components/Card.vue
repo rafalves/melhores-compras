@@ -1,19 +1,26 @@
 <template>
-  <div class="card hover:opacity-90">
+  <div class="card hover:opacity-90 rounded">
     <NuxtLink :to="_path">
-      <img class="" :src="image" :alt="alt" style="width: 100%" />
-      <div class="container">
+      <img
+        class="rounded rounded-b-none"
+        :src="image"
+        :alt="alt"
+        style="width: 100%"
+      />
+      <div class="p-2 pt-1">
         <h4>
           <b>{{ title }}</b>
         </h4>
-        <p>{{ description }}</p>
-        <i>publicado em {{ createdAt }}</i>
+        <p class="text-justify">{{ description }}</p>
+        <p class="text-xs text-right">
+          <i>publicado em {{ createdAt }}</i>
+        </p>
       </div>
     </NuxtLink>
   </div>
 </template>
 
-<script>
+<script >
 export default {
   props: {
     image: {
@@ -45,9 +52,5 @@ export default {
 
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-.container {
-  padding: 2px 16px;
 }
 </style>

@@ -1,8 +1,6 @@
 <template>
   <main class="flex">
-    <div id="col-lef" class="w-1/6 flex-none bg-slate-400 hidden md:block">
-      test
-    </div>
+    <div id="col-lef" class="w-1/6 flex-none hidden md:block"></div>
     <div id="col-center" class="flex-1 w-2/6">
       <section class="lg:px-[15%] px-[5%]">
         <h1 class="lg:text-2xl text-2xl leading-9 font-semibold text-center">
@@ -13,7 +11,7 @@
         >
           Blog Posts
         </p>
-        <div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           <Card
             :title="data[0].children[0].children[0].title"
             :alt="data[0].children[0].children[0].alt"
@@ -25,9 +23,7 @@
         </div>
       </section>
     </div>
-    <div id="col-right" class="w-1/6 flex-none bg-slate-400 hidden md:block">
-      test
-    </div>
+    <div id="col-right" class="w-1/6 flex-none hidden md:block"></div>
   </main>
 </template>
 

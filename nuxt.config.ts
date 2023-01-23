@@ -1,7 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   telemetry: false,
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/content"],
+  extends: "@nuxt-themes/typography",
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/content", "@nuxt/image-edge"],
   content: {
     navigation: {
       fields: [
