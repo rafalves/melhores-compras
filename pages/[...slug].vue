@@ -11,7 +11,7 @@ const { data } = await useAsyncData(`content-${path}`, () => {
     <div id="col-center" class="flex-1 w-2/6">
       <ClientOnly>
         <ContentRenderer
-          class="text-justify blog-link pr-7 max-w-none"
+          class="text-height text-justify blog-link pr-7 max-w-none"
           :value="data"
         >
           <template #empty>
@@ -24,4 +24,5 @@ const { data } = await useAsyncData(`content-${path}`, () => {
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>
