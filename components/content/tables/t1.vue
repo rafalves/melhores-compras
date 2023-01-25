@@ -97,7 +97,7 @@ export default {
             target="_blank"
             class="flex gap-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
             ><i class="material-icons">shopping_cart</i>
-            COMPRAR
+            VER PREÇO
           </NuxtLink>
         </td>
       </tr>
