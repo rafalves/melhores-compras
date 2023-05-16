@@ -11,24 +11,10 @@
         >
           Blog Posts
         </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          <Card
-            :title="data[0].children[0].children[0].title"
-            :alt="data[0].children[0].children[0].alt"
-            :image="data[0].children[0].children[0].image"
-            :description="data[0].children[0].children[0].description"
-            :createdAt="data[0].children[0].children[0].createdAt"
-            :_path="data[0].children[0].children[0]._path"
-          />
-        </div>
       </section>
     </div>
     <div id="col-right" class="w-1/6 flex-none hidden md:block"></div>
   </main>
 </template>
 
-<script setup>
-const { data } = await useAsyncData("artigos", () => {
-  return fetchContentNavigation(queryContent("artigos/pets/"));
-});
-</script>
+<script setup></script>
