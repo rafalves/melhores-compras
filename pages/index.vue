@@ -11,10 +11,61 @@
         >
           Blog Posts
         </p>
+        <!-- <Card
+          :title="data[0].children[0].children[0].title"
+          :alt="data[0].children[0].children[0].alt"
+          :image="data[0].children[0].children[0].image"
+          :description="data[0].children[0].children[0].description"
+          :createdAt="data[0].children[0].children[0].createdAt"
+          :_path="data[0].children[0].children[0]._path"
+        /> -->
       </section>
     </div>
     <div id="col-right" class="w-1/6 flex-none hidden md:block"></div>
   </main>
 </template>
 
-<script setup></script>
+<script setup>
+const qs = require("qs");
+const config = useRuntimeConfig();
+
+const query = qs.stringify(
+  {
+    sort: ["title:asc"],
+    filters: {
+      title: {
+        $eq: "hello",
+      },
+    },
+    populate: "*",
+    fields: ["title"],
+    pagination: {
+      pageSize: 10,
+      page: 1,
+    },
+    publicationState: "live",
+    locale: ["en"],
+  },
+  {
+    encodeValuesOnly: true, // prettify URL
+  }
+);
+
+// const {
+//   data: articles,
+//   pending,
+//   error,
+// } = await useFetch(`${config.public.apiBase}/api/articles?populate=*`, {
+//   pick: ["meta"],
+// });
+
+// const articlesNumber = computed(() => {
+//   if (!articles._rawValue) {
+//     return console.log("Fail");
+//   }
+//   return console.log("Win");
+// });
+
+//console.log(JSON.stringify(articles));
+//console.log(articlesNumber);
+</script>

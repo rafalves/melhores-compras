@@ -2,20 +2,12 @@
 export default defineNuxtConfig({
   telemetry: false,
   modules: ["@nuxtjs/tailwindcss"],
-  content: {
-    navigation: {
-      fields: [
-        "article",
-        "createdAt",
-        "updatedAt",
-        "image",
-        "alt",
-        "tags",
-        "description",
-      ],
-    },
-  },
   app: {
+    layoutTransition: { name: "layout", mode: "out-in" },
+    pageTransition: {
+      name: "fade",
+      mode: "out-in", // default
+    },
     head: {
       title: "Melhores-Compras.Online",
       meta: [
@@ -35,6 +27,12 @@ export default defineNuxtConfig({
           href: "/favicon.ico",
         },
       ],
+    },
+  },
+  runtimeConfig: {
+    // Keys within public, will be also exposed to the client-side
+    public: {
+      apiBase: process.env.NUXT_PUBLIC_API_BASE || "/api", // can be overridden by NUXT_PUBLIC_API_BASE environment variable
     },
   },
 });
