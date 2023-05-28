@@ -11,14 +11,24 @@
         >
           Blog Posts
         </p>
-        <!-- <Card
-          :title="data[0].children[0].children[0].title"
-          :alt="data[0].children[0].children[0].alt"
-          :image="data[0].children[0].children[0].image"
-          :description="data[0].children[0].children[0].description"
-          :createdAt="data[0].children[0].children[0].createdAt"
-          :_path="data[0].children[0].children[0]._path"
-        /> -->
+        <div v-if="pending"></div>
+        <div v-for="article in articles.data" :key="article.id">
+          <CardHome
+            :title="article.attributes.title"
+            :alt="
+              article.attributes.image_cover.data.attributes.alternativeText
+            "
+            :image="`
+              ${config.public.apiBase}${article.attributes.image_cover.data.attributes.formats.small.url}
+              `"
+            :description="article.attributes.meta_description"
+            :createdAt="article.attributes.createdAt"
+          />
+          <!-- :_path="
+              article.attributes.category.data.attributes.category.data
+                .attributes.categoryName
+            " -->
+        </div>
       </section>
     </div>
     <div id="col-right" class="w-1/6 flex-none hidden md:block"></div>
@@ -26,46 +36,36 @@
 </template>
 
 <script setup>
-const qs = require("qs");
-const config = useRuntimeConfig();
+import qs from "qs";
 
+const config = useRuntimeConfig();
+const collection = "/api/articles?";
 const query = qs.stringify(
   {
-    sort: ["title:asc"],
-    filters: {
-      title: {
-        $eq: "hello",
-      },
-    },
     populate: "*",
-    fields: ["title"],
-    pagination: {
-      pageSize: 10,
-      page: 1,
-    },
-    publicationState: "live",
-    locale: ["en"],
   },
   {
     encodeValuesOnly: true, // prettify URL
   }
 );
+const { data: articles, pending } = await useFetch(
+  `${config.public.apiBase}${collection}${query}`
+  //{ pick: ["data", "meta"] }
+);
 
-// const {
-//   data: articles,
-//   pending,
-//   error,
-// } = await useFetch(`${config.public.apiBase}/api/articles?populate=*`, {
-//   pick: ["meta"],
-// });
+const checkPending = watch(pending.value, (newVale) => {
+  if (!pending.value) {
+    console.log(JSON.stringify(pending.value));
+  } else {
+    console.log(JSON.stringify(pending.value));
+  }
+});
 
-// const articlesNumber = computed(() => {
-//   if (!articles._rawValue) {
-//     return console.log("Fail");
-//   }
-//   return console.log("Win");
-// });
+console.log(
+  JSON.stringify(
+    articles._rawValue.data[0].attributes.category.data.attributes.categoryName
+  )
+);
 
 //console.log(JSON.stringify(articles));
-//console.log(articlesNumber);
 </script>

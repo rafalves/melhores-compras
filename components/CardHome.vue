@@ -5,7 +5,7 @@
         class="rounded rounded-b-none"
         :src="image"
         :alt="alt"
-        style="width: 100%"
+        style="width: 50%"
       />
       <div class="p-2 pt-1">
         <h4>
