@@ -1,48 +1,48 @@
 <template>
   <div class="card hover:opacity-90 rounded">
-    <NuxtLink :to="_path">
+    <NuxtLink :to="`/blog/${categoryUrl}/${article?.attributes.slug}`">
       <img
         class="rounded rounded-b-none"
-        :src="image"
-        :alt="alt"
-        style="width: 50%"
+        :src="imgUrl"
+        :alt="article?.attributes.image_cover.data?.attributes.alternativeText"
+        style="width: 50%, height: 50%;"
       />
       <div class="p-2 pt-1">
         <h4>
-          <b>{{ title }}</b>
+          <b>{{ article?.attributes.title }}</b>
         </h4>
-        <p class="text-justify">{{ description }}</p>
+        <p class="text-justify">{{ article?.attributes.meta_description }}</p>
         <p class="text-xs text-right">
-          <i>publicado em {{ createdAt }}</i>
+          <i>publicado em {{ article?.attributes.createdAt }}</i>
         </p>
       </div>
     </NuxtLink>
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    image: {
-      type: String,
-    },
-    alt: {
-      type: String,
-    },
-    title: {
-      type: String,
-    },
-    description: {
-      type: String,
-    },
-    createdAt: {
-      type: String,
-    },
-    _path: {
-      type: String,
-    },
+<script setup lang="ts">
+import { PropType } from "vue";
+import { Article } from "~/types/Article";
+
+const config = useRuntimeConfig();
+
+const categoryUrl = computed(() =>
+  props.article?.attributes.category?.data?.attributes?.categoryName != null
+    ? props.article?.attributes.category?.data?.attributes?.categoryName
+    : "diversos"
+);
+const imgUrl = computed(() =>
+  props.article?.attributes.image_cover.data?.attributes.formats.small?.url !=
+  null
+    ? `${config.public.apiBase}${props.article?.attributes.image_cover.data?.attributes.formats.small?.url}`
+    : "https://via.placeholder.com/300x500"
+);
+
+const props = defineProps({
+  article: {
+    type: Object as PropType<Article>,
   },
-};
+});
 </script>
 <style scoped>
 .card {

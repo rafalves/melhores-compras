@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   telemetry: false,
-  modules: ["@nuxtjs/tailwindcss"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/devtools", "@nuxtjs/markdownit"],
   app: {
     layoutTransition: { name: "layout", mode: "out-in" },
     pageTransition: {
@@ -32,7 +32,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     // Keys within public, will be also exposed to the client-side
     public: {
-      apiBase: process.env.NUXT_PUBLIC_API_BASE || "/api", // can be overridden by NUXT_PUBLIC_API_BASE environment variable
+      apiBase: "", // can be overridden by NUXT_PUBLIC_API_BASE environment variable
     },
   },
 });

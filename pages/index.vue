@@ -11,23 +11,9 @@
         >
           Blog Posts
         </p>
-        <div v-if="pending"></div>
-        <div v-for="article in articles.data" :key="article.id">
-          <CardHome
-            :title="article.attributes.title"
-            :alt="
-              article.attributes.image_cover.data.attributes.alternativeText
-            "
-            :image="`
-              ${config.public.apiBase}${article.attributes.image_cover.data.attributes.formats.small.url}
-              `"
-            :description="article.attributes.meta_description"
-            :createdAt="article.attributes.createdAt"
-          />
-          <!-- :_path="
-              article.attributes.category.data.attributes.category.data
-                .attributes.categoryName
-            " -->
+        <div v-for="article in response?.data" :key="article.id">
+        <CardHome :article="article" />
+          
         </div>
       </section>
     </div>
@@ -35,37 +21,11 @@
   </main>
 </template>
 
-<script setup>
-import qs from "qs";
+<script setup lang="ts">
+import { APIResponse } from "~/types/APIResponse";
 
-const config = useRuntimeConfig();
-const collection = "/api/articles?";
-const query = qs.stringify(
-  {
-    populate: "*",
-  },
-  {
-    encodeValuesOnly: true, // prettify URL
-  }
-);
-const { data: articles, pending } = await useFetch(
-  `${config.public.apiBase}${collection}${query}`
-  //{ pick: ["data", "meta"] }
-);
+const { data: response } = await useFetch<APIResponse>("/api/articles/articlesHomePage");
 
-const checkPending = watch(pending.value, (newVale) => {
-  if (!pending.value) {
-    console.log(JSON.stringify(pending.value));
-  } else {
-    console.log(JSON.stringify(pending.value));
-  }
-});
 
-console.log(
-  JSON.stringify(
-    articles._rawValue.data[0].attributes.category.data.attributes.categoryName
-  )
-);
-
-//console.log(JSON.stringify(articles));
+// console.log(JSON.stringify(response?.value));
 </script>
