@@ -1,5 +1,6 @@
 <template>
   <main class="flex">
+    <Body></Body>
     <div id="col-lef" class="w-1/6 flex-none hidden md:block"></div>
     <div id="col-center" class="flex-1 w-2/6">
       <section class="lg:px-[15%] px-[5%]">
@@ -12,8 +13,7 @@
           Blog Posts
         </p>
         <div v-for="article in response?.data" :key="article.id">
-        <CardHome :article="article" />
-          
+          <CardHome :article="article" />
         </div>
       </section>
     </div>
@@ -24,8 +24,7 @@
 <script setup lang="ts">
 import { APIResponse } from "~/types/APIResponse";
 
-const { data: response } = await useFetch<APIResponse>("/api/articles/articlesHomePage");
-
-
-// console.log(JSON.stringify(response?.value));
+const { data: response } = await useFetch<APIResponse>(
+  "/api/articles/articlesHomePage"
+);
 </script>

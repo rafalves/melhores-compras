@@ -9,14 +9,14 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^38.0.1",
+    "@ckeditor/ckeditor5-vue": "^5.1.0",
+    "@nuxt/devtools": "^0.5.5",
     "@nuxtjs/tailwindcss": "^6.6.8",
     "@tailwindcss/typography": "^0.5.9",
     "@types/node": "^18",
+    "embed-js": "^5.0.4",
     "nuxt": "^3.5.0",
     "qs": "^6.11.2"
-  },
-  "dependencies": {
-    "@nuxt/devtools": "^0.5.5",
-    "moment": "^2.29.4"
   }
 }

@@ -14,7 +14,7 @@ module.exports = {
   theme: {
     extend: {
       lineHeight: {
-        "extra-small": "0.5rem",
+        // "extra-small": "0.5rem",
       },
     },
   },

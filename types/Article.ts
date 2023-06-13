@@ -13,6 +13,7 @@ export type Article = {
     components?: Component[];
     category?: Category;
     author?: Author;
+    content_ckeditor?: string;
   };
 };
 

@@ -1,5 +1,5 @@
 export type Article = {
-  data: {
+  data?: {
     id: number;
     attributes: {
       title: string;
@@ -14,6 +14,7 @@ export type Article = {
       components?: Component[];
       category?: Category;
       author?: Author;
+      content_ckeditor?: string;
     };
   };
 };
