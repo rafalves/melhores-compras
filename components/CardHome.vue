@@ -34,7 +34,7 @@ const categoryUrl = computed(() =>
 const imgUrl = computed(() =>
   props.article?.attributes.image_cover.data?.attributes.formats.small?.url !=
   null
-    ? `${config.public.apiBase}${props.article?.attributes.image_cover.data?.attributes.formats.small?.url}`
+    ? `${config.public.apiImageBase}${props.article?.attributes.image_cover.data?.attributes.formats.small?.url}`
     : "https://via.placeholder.com/300x500"
 );
 

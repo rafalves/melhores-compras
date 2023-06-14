@@ -70,7 +70,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     // Keys within public, will be also exposed to the client-side
     public: {
-      apiBase: "http://191.96.251.66:1337", // can be overridden by NUXT_PUBLIC_API_BASE environment variable
+      apiBase: "http://191.96.251.66", // can be overridden by NUXT_PUBLIC_API_BASE environment variable
+      apiImageBase: "https://www.melhores-compras.online", // can be overridden by NUXT_PUBLIC_API_BASE environment variable
     },
   },
 });
