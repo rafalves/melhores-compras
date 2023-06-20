@@ -1,4 +1,5 @@
 <template>
+  <NuxtLoadingIndicator :height="5" :duration="30000" :throttle="400" />
   <div id="box" class="flex flex-col height">
     <div id="header" class="flex-none bg-sky-400 w-full py-4 shadow-xl">
       <div class="w-2/3 mx-auto">
