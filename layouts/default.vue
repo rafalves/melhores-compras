@@ -1,5 +1,4 @@
 <template>
-  <NuxtLoadingIndicator :height="5" :duration="30000" :throttle="400" />
   <div id="box" class="flex flex-col height">
     <div id="header" class="flex-none bg-sky-400 w-full py-4 shadow-xl">
       <div class="w-2/3 mx-auto">
@@ -14,7 +13,7 @@
       </div>
     </div>
 
-    <div id="content" class="flex-1 my-5">
+    <div id="content" class="flex-1">
       <!-- content goes here -->
       <slot />
     </div>

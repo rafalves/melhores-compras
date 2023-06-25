@@ -14,11 +14,13 @@ export type Article = {
     category?: Category;
     author?: Author;
     content_ckeditor?: string;
+    minsToRead?: number;
   };
 };
 
 export type Author = {
   data: {
+    id?: number;
     attributes: {
       name: string;
       description: string;

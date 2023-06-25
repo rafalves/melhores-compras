@@ -15,6 +15,7 @@ export type Article = {
       category?: Category;
       author?: Author;
       content_ckeditor?: string;
+      minsToRead?: number;
     };
   };
 };

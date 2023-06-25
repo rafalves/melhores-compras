@@ -16,6 +16,7 @@
     "@tailwindcss/typography": "^0.5.9",
     "@types/node": "^18",
     "embed-js": "^5.0.4",
+    "moment": "^2.29.4",
     "nuxt": "^3.5.0",
     "qs": "^6.11.2"
   }
