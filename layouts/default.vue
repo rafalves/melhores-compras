@@ -1,41 +1,25 @@
 <template>
-  <div id="box" class="flex flex-col height">
-    <div id="header" class="flex-none bg-sky-400 w-full py-4 shadow-xl">
-      <div class="w-2/3 mx-auto">
-        <header>
-          <nav class="mx-auto flex justify-center items-center">
-            <NuxtLink to="/" class="flex hover:text-purple-900">
-              <i class="material-icons">workspace_premium</i
-              >Melhores-Compras.Online
-            </NuxtLink>
-          </nav>
-        </header>
-      </div>
+  <div class="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-7">
+    <!-- header -->
+    <div class="col-span-7">
+      <LayoutsHeader />
     </div>
-
-    <div id="content" class="flex-1">
-      <!-- content goes here -->
+    <!-- menu  -->
+    <div class="hidden md:block bg-red-300">menu</div>
+    <!-- content  -->
+    <div
+      class="col-span-1 md:col-span-3 lg:col-span-5 grid place-items-center bg-green-300"
+    >
       <slot />
     </div>
-
-    <div
-      id="footer"
-      class="flex-none flex bg-sky-400 bottom-0 w-full items-center py-5"
-    >
-      <footer class="w-2/3 mx-auto text-center">
-        <p class="font-thin text-xs">
-          Somos um site especializado em reviews e recomendações de produtos,
-          aqui vocês encontrarão boas promoções. Caso comprem algum produto
-          através do site, nós podemos ganhar uma pequena comissão ;)
-        </p>
-        <span class="text-xs font-semibold">
-          &copy; Copyright 2023 | Melhores-Compras.Online
-        </span>
-      </footer>
+    <!-- aside  -->
+    <div class="hidden md:block bg-yellow-200">aside</div>
+    <!-- footer -->
+    <div class="col-span-7 grid place-content-center bg-pink-300">
+      <LayoutsFooter />
     </div>
   </div>
 </template>
-
 <script setup></script>
 
 <style scoped>

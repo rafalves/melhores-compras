@@ -1,24 +1,16 @@
 <template>
   <!-- left column -->
-  <div
-    class="p-4 max-w-screen grid gap-4 place-items-center grid-cols-1 lg:grid-cols-3"
-  >
-    <div class="sm:hidden lg:block">left</div>
+  <div class="">
     <!-- main div -->
-    <div>
+    <div class="">
       <h1>Veja nossos ultimos posts...</h1>
-      sdsdf
-      <div
-        class="w-[800px]"
-        v-for="article in response?.data"
-        :key="article.id"
-      >
-        <CardHome :article="article" />
-        <CardHome :article="article" />
+      <div class="flex">
+        <div class="" v-for="article in response?.data" :key="article.id">
+          <CardHome :article="article" /> <br />
+        </div>
       </div>
     </div>
     <!-- right column -->
-    <div class="sm:hidden lg:block">right</div>
   </div>
 </template>
 

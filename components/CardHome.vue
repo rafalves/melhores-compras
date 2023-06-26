@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[320px] h-[350px] card hover:opacity-90 rounded relative">
+  <div class="m-2 w-[320px] h-[350px] card hover:opacity-90 rounded relative">
     <NuxtLink :to="`/blog/${categoryUrl}/${article?.attributes.slug}`">
       <span
         class="absolute top-0 bg-sky-500 px-5 text-neutral-100 font-medium uppercase opacity-80"
