@@ -31,8 +31,8 @@ if (productsIds) {
         `/api/findProduct?id=${element.id}`
       );
 
-      console.log("passei aqui ");
-      console.log(new Date().toLocaleTimeString());
+      // console.log("passei aqui ");
+      // console.log(new Date().toLocaleTimeString());
       // console.log(JSON.stringify(data.value.data));
       // console.log(Object.keys(data._value.data.attributes.pros[0].pros));
 
