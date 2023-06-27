@@ -1,5 +1,5 @@
 <template>
-  <div class="m-2 w-[320px] h-[350px] card hover:opacity-90 rounded relative">
+  <div class="m-2 w-[320px] h-[350px] card hover:opacity-80 relative bg-white">
     <NuxtLink :to="`/blog/${categoryUrl}/${article?.attributes.slug}`">
       <span
         class="absolute top-0 bg-sky-500 px-5 text-neutral-100 font-medium uppercase opacity-80"
@@ -24,7 +24,10 @@
         <p class="text-justify pt-2 text-base line-clamp-3">
           {{ article?.attributes.meta_description }}
         </p>
-        <p class="text-xs pt-1 absolute bottom-1 right-3">
+        <p
+          v-if="article?.attributes.author?.data.attributes.name"
+          class="text-xs pt-1 absolute bottom-1 right-3"
+        >
           por
           <img
             class="inline-block h-5 w-5 rounded-full"
@@ -70,9 +73,13 @@ const props = defineProps({
   },
 });
 
-const id = props.article?.attributes.author?.data.id;
+const id = computed(() =>
+  props.article?.attributes.author?.data.id != null
+    ? props.article?.attributes.author?.data.id
+    : (1 as number)
+);
 const { data: author, error } = await useFetch<Author>(
-  `/api/findAuthor?id=${id}`
+  `/api/findAuthor?id=${id.value}`
 );
 
 if (error.value != null) {
@@ -86,15 +93,8 @@ const authorImg = computed(() =>
     ? `${config.public.apiImageBase}${author.value?.data.attributes?.photo?.data?.attributes?.formats?.thumbnail?.url}`
     : "image not loaded"
 );
-
-console.log(authorImg);
 </script>
 <style scoped>
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-}
-
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }

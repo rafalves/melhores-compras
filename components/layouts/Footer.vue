@@ -1,8 +1,5 @@
 <template>
-  <div
-    id="footer"
-    class="flex-none flex bg-sky-400 bottom-0 w-screen items-center py-5"
-  >
+  <div class="flex h-auto bg-sky-400 bottom-0 w-screen items-center py-5">
     <footer class="w-2/3 mx-auto text-center">
       <p class="font-thin text-xs">
         Somos um site especializado em reviews e recomendações de produtos, aqui

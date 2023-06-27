@@ -1,19 +1,21 @@
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-7">
+  <div
+    class="w-full grid grid-cols-1 md:grid-cols-5 lg:grid-cols-7 bg-slate-100"
+  >
     <!-- header -->
     <div class="col-span-7">
       <LayoutsHeader />
     </div>
     <!-- menu  -->
-    <div class="hidden md:block bg-red-300">menu</div>
+    <div class="hidden md:block"></div>
     <!-- content  -->
     <div
-      class="col-span-1 md:col-span-3 lg:col-span-5 grid place-items-center bg-green-300"
+      class="min-h-18/20 col-span-1 md:col-span-3 lg:col-span-5 grid place-items-center"
     >
       <slot />
     </div>
     <!-- aside  -->
-    <div class="hidden md:block bg-yellow-200">aside</div>
+    <div class="hidden md:block"></div>
     <!-- footer -->
     <div class="col-span-7 grid place-content-center bg-pink-300">
       <LayoutsFooter />

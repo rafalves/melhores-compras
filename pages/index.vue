@@ -1,16 +1,15 @@
 <template>
-  <!-- left column -->
   <div class="">
-    <!-- main div -->
     <div class="">
-      <h1>Veja nossos ultimos posts...</h1>
-      <div class="flex">
+      <h1 class="lg:text-2xl text-2xl leading-9 font-semibold text-center pt-5">
+        Veja nossos ultimos posts...
+      </h1>
+      <div class="flex flex-wrap justify-evenly">
         <div class="" v-for="article in response?.data" :key="article.id">
           <CardHome :article="article" /> <br />
         </div>
       </div>
     </div>
-    <!-- right column -->
   </div>
 </template>
 
