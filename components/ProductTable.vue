@@ -1,46 +1,54 @@
+<script setup lang="ts">
+import { Product } from "~/types/ProductPage";
+
+const props = defineProps({
+  products: {
+    type: Object as PropType<Product[]>,
+  },
+});
+</script>
+
 <template>
-  <div class="w-screen">
+  <div class="flex flex-col justify-center">
     <table
-      v-for="(produto, index) in produtos"
-      :key="produto.id"
+      v-for="(product, index) in products"
+      :key="product.data?.id"
       class="flex w-2/3 flex-col border"
     >
       <tr class="px-4 flex items-center py-0 border-b hover:bg-slate-100">
         <td class="flex-none font-extrabold">{{ index + 1 }}°</td>
         <td>
-          <img fit="cover" :src="produto.imageUrl" width="60" height="60" />
+          <img
+            fit="cover"
+            :src="product.data?.attributes?.imageUrl"
+            width="60"
+            height="60"
+          />
         </td>
         <td class="flex-1 grow text-left">
-          {{ produto.title }}
+          {{ product.data?.attributes?.name }}
         </td>
         <td class="flex-1 grow ml-5">
-          <p v-for="(pro, index) in row.pros" class="size">{{ pro }}<br /></p>
+          <p
+            v-for="pro in product.data?.attributes?.pros"
+            :key="pro.id"
+            class=""
+          >
+            {{ pro.pros }}<br />
+          </p>
         </td>
         <td class="flex-none">
           <NuxtLink
-            :to="row.prodLink"
+            :to="product.data?.attributes?.seller?.[0]?.prod_link"
             target="_blank"
             class="flex gap-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
             ><i class="material-icons">shopping_cart</i>
-            VER PREÇO
+            {{ product.data?.attributes?.shopButton?.[0].label }}
           </NuxtLink>
         </td>
       </tr>
     </table>
   </div>
 </template>
-<script setup lang="ts">
-import { Component } from "~/types/Article";
 
-const props = defineProps({
-  produtos: {
-    type: Array as PropType<Component[]>,
-  },
-});
-</script>
-
-<style scoped>
-p.size {
-  font-size: 12px;
-}
-</style>
+<style scoped></style>

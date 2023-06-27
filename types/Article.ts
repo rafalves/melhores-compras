@@ -1,14 +1,14 @@
 export type Article = {
-  id: number;
-  attributes: {
-    title: string;
-    slug: string;
-    meta_description: string;
-    content: string;
+  id?: number;
+  attributes?: {
+    title?: string;
+    slug?: string;
+    meta_description?: string;
+    content?: string;
     createdAt?: string;
     updatedAt?: string;
     publishedAt?: string;
-    image_cover: ImageCover;
+    image_cover?: ImageCover;
     keywords?: Keywords[];
     components?: Component[];
     category?: Category;
@@ -19,11 +19,11 @@ export type Article = {
 };
 
 export type Author = {
-  data: {
+  data?: {
     id?: number;
-    attributes: {
-      name: string;
-      description: string;
+    attributes?: {
+      name?: string;
+      description?: string;
     };
   };
 };

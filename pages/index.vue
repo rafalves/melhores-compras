@@ -1,6 +1,6 @@
 <template>
-  <div class="">
-    <div class="">
+  <div>
+    <div>
       <h1 class="lg:text-2xl text-2xl leading-9 font-semibold text-center pt-5">
         Veja nossos ultimos posts...
       </h1>

@@ -3,8 +3,9 @@
     class="w-full grid grid-cols-1 md:grid-cols-5 lg:grid-cols-7 bg-slate-100"
   >
     <!-- header -->
-    <div class="col-span-7">
+    <div class="col-span-7 relative">
       <LayoutsHeader />
+      <div class="h-14"></div>
     </div>
     <!-- menu  -->
     <div class="hidden md:block"></div>

@@ -16,15 +16,31 @@ export type Article = {
       author?: Author;
       content_ckeditor?: string;
       minsToRead?: number;
+      products?: ProductData;
     };
   };
 };
 
+export type Product = {
+  id?: number;
+  attributes?: {
+    name?: string;
+    rating?: number;
+    imageUrl?: string;
+    description_blog?: string;
+    description_ckeditor: string;
+  };
+};
+
+interface ProductData {
+  data: Product[];
+}
+
 export type Author = {
-  data: {
-    attributes: {
-      name: string;
-      description: string;
+  data?: {
+    attributes?: {
+      name?: string;
+      description?: string;
     };
   };
 };

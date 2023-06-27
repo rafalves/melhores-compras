@@ -1,5 +1,8 @@
 <template>
-  <div id="header" class="flex-none bg-sky-400 w-full py-4 shadow-xl">
+  <div
+    id="header"
+    class="flex-none bg-sky-400 w-full py-4 shadow-xl fixed z-50"
+  >
     <div class="w-2/3 mx-auto">
       <header>
         <nav class="mx-auto flex justify-center items-center">
