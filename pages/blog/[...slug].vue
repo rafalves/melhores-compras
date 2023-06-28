@@ -41,14 +41,14 @@ if (productsIds) {
     <div class="flex-1">
       <div v-if="!error">
         <div
-          class="justify-items-center prose max-w-none shadow-lg bg-white px-7 pt-5"
+          class="justify-items-center prose max-w-none shadow-lg bg-white pt-5"
         >
           <SlicesBreadcrumbs />
           <SlicesArticleTitle :title="response?.data?.attributes.title" />
           <div v-for="product in products" :key="product.data?.id"></div>
           <ProductTable :products="products" />
 
-          <div v-html="content"></div>
+          <div class="px-5" v-html="content"></div>
         </div>
       </div>
     </div>
