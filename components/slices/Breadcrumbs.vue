@@ -1,11 +1,11 @@
 <template>
-  <div class="text-sm flex text-slate-500 not-prose pb-5">
+  <div class="text-sm flex flex-wrap text-slate-500 not-prose pb-5">
     <ul
       class="list-none mx-3"
       v-for="(link, index) in breadcrumbs"
       :key="index"
     >
-      <li>
+      <li class="">
         <NuxtLink
           class="underline underline-offset-4"
           :to="getLink(index)"
