@@ -9,8 +9,12 @@ const props = defineProps({
 </script>
 
 <template>
-  <table v-for="(product, index) in products" :key="product.data?.id" class="">
-    <tr class="px-4 flex items-center border-b hover:bg-slate-100">
+  <table
+    v-for="(product, index) in products"
+    :key="product.data?.id"
+    class="not-prose"
+  >
+    <tr class="px-10 flex items-center border-b hover:bg-slate-100">
       <td class="font-extrabold">{{ index + 1 }}°</td>
       <td>
         <img

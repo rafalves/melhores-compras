@@ -31,26 +31,23 @@ if (productsIds) {
         `/api/findProduct?id=${element.id}`
       );
 
-      // console.log("passei aqui ");
-      // console.log(new Date().toLocaleTimeString());
-      // console.log(JSON.stringify(data.value.data));
-      // console.log(Object.keys(data._value.data.attributes.pros[0].pros));
-
       if (data) products.push(data.value as Product);
     }
   }
 }
-// console.log(Object.keys(products));
 </script>
 <template>
   <div class="flex font-mono pt-5 py-11">
-    <div id="col-center" class="flex-1 w-2/6">
+    <div class="flex-1">
       <div v-if="!error">
         <div
-          class="prose max-w-none ck-content shadow-lg rounded-xl p-6 mt-2 bg-white"
+          class="justify-items-center prose max-w-none shadow-lg bg-white px-7 pt-5"
         >
+          <SlicesBreadcrumbs />
+          <SlicesArticleTitle :title="response?.data?.attributes.title" />
           <div v-for="product in products" :key="product.data?.id"></div>
           <ProductTable :products="products" />
+
           <div v-html="content"></div>
         </div>
       </div>
