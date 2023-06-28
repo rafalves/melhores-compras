@@ -8,7 +8,7 @@
       <li>
         <NuxtLink
           class="underline underline-offset-4"
-          :to="`/${link}`"
+          :to="getLink(index)"
           v-if="index != breadcrumbs.length - 1"
         >
           {{ link }} >
@@ -23,6 +23,18 @@
 const route = useRoute();
 const breadcrumbs = route.fullPath.split("/");
 breadcrumbs[0] = "home";
+
+function getLink(index) {
+  if (index === 0) {
+    return "/";
+  }
+  if (index === 2) {
+    return `/${breadcrumbs[1]}/${breadcrumbs[2]}`;
+  }
+
+  return `/${breadcrumbs[index]}`;
+}
+
 console.log(route.fullPath);
 console.log(breadcrumbs);
 </script>
