@@ -35,7 +35,12 @@ if (productsIds) {
     }
   }
 }
+
+// definePageMeta({
+//   middleware: "checkCategory",
+// });
 </script>
+
 <template>
   <div class="flex font-mono pt-5 py-11">
     <div class="flex-1">

@@ -15,8 +15,30 @@
 
 <script setup lang="ts">
 import { APIResponse } from "~/types/APIResponse";
+import { CategoryData, Category } from "~/types/Category";
 
 const { data: response } = await useFetch<APIResponse>(
   "/api/articles/articlesHomePage"
 );
+
+const { data: categoriesRes, error } = await useFetch<CategoryData>(
+  "/api/findCategory/"
+);
+
+let categories: Category[] = [];
+const menuState = useState("categories");
+const menuCategories: CategoryState = { category: {} };
+
+if (!error.value) {
+  categories = categoriesRes.value?.data
+    ? categoriesRes.value?.data.map((category) => ({
+        id: category.id,
+        attributes: {
+          categoryName: category.attributes.categoryName,
+        },
+      }))
+    : [];
+}
+
+console.log(menuCategories);
 </script>
