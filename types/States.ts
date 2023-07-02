@@ -1,3 +1,6 @@
-interface CategoryState {
-  category: Record<number, string>;
+export interface CategoryState {
+  categories: {
+    id: number;
+    name: string;
+  }[];
 }

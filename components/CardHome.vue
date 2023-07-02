@@ -1,6 +1,8 @@
 <template>
   <div class="m-2 w-[320px] h-[350px] card hover:opacity-80 relative bg-white">
-    <NuxtLink :to="`/blog/${categoryUrl}/${article?.attributes?.slug}`">
+    <NuxtLink
+      :to="`/blog/${categoryUrl}/${article?.attributes?.slug}?category=${categories}`"
+    >
       <span
         class="absolute top-0 bg-sky-500 px-5 text-neutral-100 font-medium uppercase opacity-80"
         >{{ categoryUrl }}</span
@@ -95,6 +97,9 @@ const authorImg = computed(() =>
     ? `${config.public.apiImageBase}${author.value?.data.attributes?.photo?.data?.attributes?.formats?.thumbnail?.url}`
     : "image not loaded"
 );
+
+const categoryState = useCategoryState();
+const categories = categoryState.value; //
 </script>
 <style scoped>
 .card:hover {
