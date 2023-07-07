@@ -3,7 +3,7 @@
     class="w-full grid grid-cols-1 md:grid-cols-5 lg:grid-cols-7 bg-slate-100"
   >
     <!-- header -->
-    <div class="col-span-7 relative">
+    <div class="md:col-span-5 lg:col-span-7">
       <LayoutsHeader />
       <div class="h-14"></div>
     </div>
@@ -18,7 +18,9 @@
     <!-- aside  -->
     <div class="hidden md:block"></div>
     <!-- footer -->
-    <div class="col-span-7 grid place-content-center bg-pink-300">
+    <div
+      class="md:col-span-5 lg:col-span-7 grid place-content-center bg-pink-300"
+    >
       <LayoutsFooter />
     </div>
   </div>

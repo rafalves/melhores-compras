@@ -15,24 +15,8 @@
 
 <script setup lang="ts">
 import { APIResponse } from "~/types/APIResponse";
-import { CategoryData, Category } from "~/types/Category";
-import { useCategoryState, fetchCategoryState } from "~/composables/states";
 
 const { data: response } = await useFetch<APIResponse>(
   "/api/articles/articlesHomePage"
 );
-
-const { data: categoriesRes, error } = await useFetch<CategoryData>(
-  "/api/findCategory/"
-);
-
-const categoryState = useCategoryState();
-const categories = categoryState.value; //
-
-if (!error.value) {
-  fetchCategoryState(categoriesRes.value?.data as Category[]);
-}
-
-console.log(categoryState.value);
-console.log(categories); //
 </script>

@@ -1,4 +1,7 @@
 {
+  "name": "melhores-compras.online",
+  "description": "marketing website",
+  "author": "Rafael Alves <rafalves.costa@gmail.com>",
   "private": true,
   "scripts": {
     "start": "node .output/server/index.mjs",
