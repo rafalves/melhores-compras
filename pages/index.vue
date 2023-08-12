@@ -5,8 +5,13 @@
         Veja nossos ultimos posts...
       </h1>
       <div class="flex flex-wrap justify-center 2xl:justify-normal">
-        <div class="" v-for="article in response?.data" :key="article.id">
-          <CardHome :article="article" /> <br />
+        <div class="" v-for="article in articleData?.data" :key="article.id">
+          <CardHome
+            v-if="!pending"
+            :article="article"
+            :author="findAuthorById(article.attributes?.author?.data?.id)"
+          />
+          <br />
         </div>
       </div>
     </div>
@@ -14,9 +19,10 @@
 </template>
 
 <script setup lang="ts">
-import { APIResponse } from "~/types/APIResponse";
+import { ArticlesData } from "~/types/Article";
+import { findAuthorById } from "~/composables/findAuthor";
 
-const { data: response } = await useFetch<APIResponse>(
-  "/api/articles/articlesHomePage"
+const { data: articleData, pending } = await useFetch<ArticlesData>(
+  "/api/article/articlesHomePage"
 );
 </script>

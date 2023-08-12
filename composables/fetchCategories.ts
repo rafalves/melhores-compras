@@ -6,7 +6,7 @@ export async function fetchCategories(): Promise<Category[]> {
   let categories: Category[] = [];
 
   if (!error.value) {
-    data.value?.data.forEach((item) => {
+    data.value?.data.forEach((item: Category) => {
       categories.push(item);
     });
   }

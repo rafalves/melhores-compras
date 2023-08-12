@@ -1,5 +1,9 @@
-export interface CategoryData {
+export interface CategoriesData {
   data: Category[];
+}
+
+export interface CategoryData {
+  data: Category;
 }
 
 export interface Category {

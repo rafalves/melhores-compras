@@ -4,9 +4,10 @@ import { Product } from "~/types/ProductPage";
 const route = useRoute();
 const config = useRuntimeConfig();
 const slug = route.params.slug;
+console.log("slug pagina " + slug);
 
 const { data: response, error } = await useFetch<Article>(
-  `/api/articles/${slug}`
+  `/api/article/findArticleBySlug/${slug}`
 );
 const content = computed(() =>
   response.value?.data?.attributes.content_ckeditor != null
@@ -35,10 +36,6 @@ if (productsIds) {
     }
   }
 }
-
-// definePageMeta({
-//   middleware: "checkCategory",
-// });
 </script>
 
 <template>

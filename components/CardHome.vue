@@ -1,13 +1,17 @@
 <template>
   <div class="m-2 w-[320px] h-[350px] card hover:opacity-80 relative bg-white">
-    <NuxtLink :to="`/blog/${categoryUrl}/${article?.attributes?.slug}`">
+    <NuxtLink
+      :to="`/blog/${article?.attributes?.category?.data?.attributes?.categoryName}/${article?.attributes?.slug}`"
+    >
       <span
         class="absolute top-0 bg-sky-500 px-5 text-neutral-100 font-medium uppercase opacity-80"
-        >{{ categoryUrl }}</span
+        >{{
+          article?.attributes?.category?.data?.attributes?.categoryName
+        }}</span
       >
       <img
         class="rounded rounded-b-none h-[180px] w-[380px]"
-        :src="imgUrl"
+        :src="imgCover"
         :alt="
           article?.attributes?.image_cover?.data?.attributes.alternativeText
         "
@@ -32,9 +36,12 @@
         >
           por
           <img
+            v-if="authorImg"
             class="inline-block h-5 w-5 rounded-full object-cover"
-            :src="authorImg"
-            alt=""
+            :src="
+              authorImg
+            "
+            alt="autor image"
           />
           {{ article?.attributes.author?.data.attributes.name }}
         </p>
@@ -46,17 +53,17 @@
 <script setup lang="ts">
 import { PropType } from "vue";
 import { Article } from "~/types/Article";
-import { Author } from "~/types/Author";
 import { useFormatData } from "~/composables/useFormatData";
 
 const config = useRuntimeConfig();
+const props = defineProps({
+  authorImg:String,
+  article: {
+    type: Object as PropType<Article>,
+  },
+});
 
-const categoryUrl = computed(() =>
-  props.article?.attributes?.category?.data?.attributes?.categoryName != null
-    ? props.article?.attributes.category?.data?.attributes?.categoryName
-    : "diversos"
-);
-const imgUrl = computed(() =>
+const imgCover = computed(() =>
   props.article?.attributes?.image_cover?.data?.attributes.formats.small?.url !=
   null
     ? `${config.public.apiImageBase}${props.article?.attributes.image_cover.data?.attributes.formats.small?.url}`
@@ -67,33 +74,6 @@ const createAt = computed(() =>
   props.article?.attributes?.createdAt
     ? useFormatData(props.article?.attributes.createdAt)
     : "teste"
-);
-
-const props = defineProps({
-  article: {
-    type: Object as PropType<Article>,
-  },
-});
-
-const id = computed(() =>
-  props.article?.attributes?.author?.data?.id != null
-    ? props.article?.attributes.author?.data.id
-    : (1 as number)
-);
-const { data: author, error } = await useFetch<Author>(
-  `/api/findAuthor?id=${id.value}`
-);
-
-if (error.value != null) {
-  console.log(error.value);
-}
-// console.log(JSON.stringify(data));
-
-const authorImg = computed(() =>
-  author.value?.data?.attributes?.photo?.data?.attributes?.formats?.thumbnail
-    ?.url != null
-    ? `${config.public.apiImageBase}${author.value?.data.attributes?.photo?.data?.attributes?.formats?.thumbnail?.url}`
-    : "image not loaded"
 );
 </script>
 <style scoped>

@@ -1,4 +1,22 @@
-export type Article = {
+import { AuthorData } from "./Author";
+
+export interface ArticlesData {
+  data?: Article[];
+  meta?: {
+    pagination: {
+      page: number;
+      pageSize: number;
+      pageCount: number;
+      total: number;
+    };
+  };
+}
+
+export interface ArticleData {
+  data?: Article;
+}
+
+export interface Article {
   id?: number;
   attributes?: {
     title?: string;
@@ -12,32 +30,38 @@ export type Article = {
     keywords?: Keywords[];
     components?: Component[];
     category?: Category;
-    author?: Author;
+    author?: AuthorData;
     content_ckeditor?: string;
     minsToRead?: number;
+    products?: ProductData;
+  };
+}
+
+interface ProductData {
+  data: Product[];
+}
+
+export type Product = {
+  id?: number;
+  attributes?: {
+    name?: string;
+    rating?: number;
+    imageUrl?: string;
+    description_blog?: string;
+    description_ckeditor: string;
   };
 };
 
-export type Author = {
-  data?: {
-    id?: number;
-    attributes?: {
-      name?: string;
-      description?: string;
-    };
-  };
-};
-
-export type Category = {
+export interface Category {
   data?: {
     id: number;
     attributes?: {
       categoryName: string;
     };
   };
-};
+}
 
-export type Component = {
+export interface Component {
   id: number;
   __component: string;
   textConnection?: string;
@@ -45,18 +69,18 @@ export type Component = {
   description?: string;
   imageUrl?: string;
   alt?: string;
-};
+}
 
-export type Keywords = {
+export interface Keywords {
   data?: {
     id: number;
     attibutes: {
       name: string;
     }[];
   };
-};
+}
 
-export type ImageCover = {
+export interface ImageCover {
   data?: {
     id: number;
     attributes: {
@@ -71,9 +95,9 @@ export type ImageCover = {
       url: string;
     };
   };
-};
+}
 
-export type Formats = {
+export interface Formats {
   small?: {
     url: string;
     name: string;
@@ -90,4 +114,4 @@ export type Formats = {
     width: number;
     height: number;
   };
-};
+}

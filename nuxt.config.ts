@@ -1,7 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   telemetry: false,
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/devtools"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/devtools", "nuxt-icon"],
+  css: ["@/assets/css/main.css"],
   app: {
     layoutTransition: { name: "layout", mode: "out-in" },
     pageTransition: {
@@ -61,8 +62,8 @@ export default defineNuxtConfig({
         },
         {
           rel: "icon",
-          type: "image/icon",
-          href: "/favicon.ico",
+          type: "image/svg+xml",
+          href: "shopping_bags.svg",
         },
       ],
     },

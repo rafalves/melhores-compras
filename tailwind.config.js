@@ -12,10 +12,8 @@ module.exports = {
     "content/**/*.md",
   ],
   theme: {
-    extend: {
-      lineHeight: {
-        // "extra-small": "0.5rem",
-      },
+    fontFamily: {
+      poppins: ["Poppins", "sans-serif"],
     },
   },
   plugins: [require("@tailwindcss/typography")],
