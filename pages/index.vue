@@ -6,11 +6,7 @@
       </h1>
       <div class="flex flex-wrap justify-center 2xl:justify-normal">
         <div class="" v-for="article in articleData?.data" :key="article.id">
-          <CardHome
-            v-if="!pending"
-            :article="article"
-            :author="findAuthorById(article.attributes?.author?.data?.id)"
-          />
+          <CardHome v-if="!pending" :article="article" />
           <br />
         </div>
       </div>
