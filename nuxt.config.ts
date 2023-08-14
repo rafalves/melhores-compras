@@ -18,6 +18,10 @@ export default defineNuxtConfig({
             "Análise, Promoção e Informação de produtos encontrados na internet",
         },
         {
+          name: "lomadee-verification",
+          content: "23174711",
+        },
+        {
           name: "robots",
           content: "index, max-image-preview:large",
         },
@@ -55,10 +59,6 @@ export default defineNuxtConfig({
         {
           rel: "canocical",
           href: "https://melhores-compras.online",
-        },
-        {
-          rel: "stylesheet",
-          href: "https://fonts.googleapis.com/icon?family=Material+Icons",
         },
         {
           rel: "icon",
