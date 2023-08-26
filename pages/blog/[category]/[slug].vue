@@ -1,6 +1,22 @@
+
+<template>
+  <div class="flex font-mono pt-5 py-11">
+    <div class="flex-1">
+      <div v-if="!error">
+        <div class="justify-items-center prose max-w-none shadow-lg bg-white pt-5">
+          <SlicesBreadcrumbs />
+          <SlicesArticleTitle :title="response?.data?.attributes.title" />
+          <div v-for="product in products" :key="product.data?.id"></div>
+          <ProductTable :products="products" />
+
+          <div class="px-5" v-html="content"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
 <script setup lang="ts">
-import { Article } from "~/types/ArticlePage";
-import { Product } from "~/types/ProductPage";
 const route = useRoute();
 const config = useRuntimeConfig();
 const slug = route.params.slug;
@@ -12,9 +28,9 @@ const { data: response, error } = await useFetch<Article>(
 const content = computed(() =>
   response.value?.data?.attributes.content_ckeditor != null
     ? response.value?.data?.attributes.content_ckeditor.replaceAll(
-        "/uploads",
-        `${config.public.apiBase}/uploads`
-      )
+      "/uploads",
+      `${config.public.apiBase}/uploads`
+    )
     : "ops... algo deu errado..."
 );
 
@@ -38,23 +54,3 @@ if (productsIds) {
 }
 </script>
 
-<template>
-  <div class="flex font-mono pt-5 py-11">
-    <div class="flex-1">
-      <div v-if="!error">
-        <div
-          class="justify-items-center prose max-w-none shadow-lg bg-white pt-5"
-        >
-          <SlicesBreadcrumbs />
-          <SlicesArticleTitle :title="response?.data?.attributes.title" />
-          <div v-for="product in products" :key="product.data?.id"></div>
-          <ProductTable :products="products" />
-
-          <div class="px-5" v-html="content"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
-<style scoped></style>

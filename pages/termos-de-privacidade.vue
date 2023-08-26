@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div>privacy page</div>
 </template>
 
 <script setup></script>

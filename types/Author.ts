@@ -14,31 +14,6 @@ export interface Author {
     createdAt?: string;
     updatedAt: string;
     publishedAt: string;
-    photo?: {
-      data?: {
-        id?: number;
-        attributes?: {
-          name?: string;
-          alternativeText?: string;
-          caption?: string;
-          width?: number;
-          height?: number;
-          formats?: {
-            small?: {
-              url?: string;
-            };
-            thumbnail?: {
-              url?: string;
-            };
-            large?: {
-              url?: string;
-            };
-            medium?: {
-              url?: string;
-            };
-          };
-        };
-      };
-    };
+    photo?: Media,
   };
 }

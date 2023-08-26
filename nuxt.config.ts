@@ -1,7 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   telemetry: false,
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/devtools", "nuxt-icon"],
+  modules: ["@nuxtjs/tailwindcss", "nuxt-icon", '@nuxt/image'],
+  devtools: { enabled: true },
   css: ["@/assets/css/main.css"],
   app: {
     layoutTransition: { name: "layout", mode: "out-in" },
@@ -71,8 +72,20 @@ export default defineNuxtConfig({
   runtimeConfig: {
     // Keys within public, will be also exposed to the client-side
     public: {
-      apiBase: "http://191.96.251.66", // can be overridden by NUXT_PUBLIC_API_BASE environment variable
+      apiBase: "/", // can be overridden by NUXT_PUBLIC_API_BASE environment variable
       apiImageBase: "https://www.melhores-compras.online", // can be overridden by NUXT_PUBLIC_API_BASE environment variable
     },
   },
+  image: {
+    format: ['webp'],
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
+      '2xl': 1536
+    },
+  }
 });

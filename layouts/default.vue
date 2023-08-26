@@ -1,34 +1,37 @@
 <template>
-  <div
-    class="w-full grid grid-cols-1 md:grid-cols-5 lg:grid-cols-7 bg-slate-100 font-poppins"
-  >
-    <!-- header -->
-    <div class="md:col-span-5 lg:col-span-7">
-      <LayoutsHeader />
-      <div class="h-14"></div>
-    </div>
-    <!-- menu  -->
-    <div class="hidden md:block"></div>
-    <!-- content  -->
-    <div
-      class="min-h-18/20 col-span-1 md:col-span-3 lg:col-span-5 grid place-items-center pt-3"
-    >
-      <slot />
-    </div>
-    <!-- aside  -->
-    <div class="hidden md:block"></div>
-    <!-- footer -->
-    <div
-      class="md:col-span-5 lg:col-span-7 grid place-content-center bg-pink-300"
-    >
-      <LayoutsFooter />
-    </div>
+  <div class="flex flex-col h-full">
+
+    <Body>
+      <header>
+        <LayoutsHeader />
+        <div class="h-14" />
+      </header>
+
+      <div class="grow">
+        <div class="flex h-full w-auto grow">
+          <!-- create aside menus later  -->
+          <aside
+            class="w-full hidden md:shrink bg-yellow-100 md:flex md:max-w-[12rem] lg:max-w-[15rem] xl:max-w-[19rem] 2xl:max-w-sm " />
+
+          <main class="flex w-full grow md:max-w-[40rem] lg:max-w-full ">
+            <slot />
+          </main>
+
+          <!-- create aside menus later  -->
+          <aside
+            class="w-full hidden grow bg-yellow-100 md:flex md:max-w-[12rem] lg:max-w-[15rem] xl:max-w-[19rem] 2xl:max-w-sm " />
+        </div>
+      </div>
+
+      <footer>
+        <LayoutsFooter />
+      </footer>
+    </Body>
   </div>
 </template>
-<script setup></script>
 
-<style scoped>
-.height {
-  min-height: 100vh;
+<style>
+#__nuxt {
+  @apply bg-slate-200;
 }
 </style>

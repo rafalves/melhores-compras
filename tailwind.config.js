@@ -13,7 +13,11 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      poppins: ["Poppins", "sans-serif"],
+      "poppins": ["Poppins", "sans-serif"],
+      "open-sans": ["Open Sans", "sans-serif"],
+      "montserrat": ["Montserrat", "sans-serif"],
+      "kanit": ["Kanit", "sans-serif"],
+      "bebas-neue": ["Bebas Neue", "sans-serif"],
     },
   },
   plugins: [require("@tailwindcss/typography")],

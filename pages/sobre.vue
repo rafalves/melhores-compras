@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div>sobre page</div>
 </template>
 
 <script setup></script>
