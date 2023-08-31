@@ -12,13 +12,16 @@ module.exports = {
     "content/**/*.md",
   ],
   theme: {
-    fontFamily: {
-      "poppins": ["Poppins", "sans-serif"],
-      "open-sans": ["Open Sans", "sans-serif"],
-      "montserrat": ["Montserrat", "sans-serif"],
-      "kanit": ["Kanit", "sans-serif"],
-      "bebas-neue": ["Bebas Neue", "sans-serif"],
+    extend: {
+      fontFamily: {
+        "poppins": ["Poppins", "sans-serif"],
+        "open-sans": ["Open Sans", "sans-serif"],
+        "montserrat": ["Montserrat", "sans-serif"],
+      },
     },
-  },
-  plugins: [require("@tailwindcss/typography")],
+  }, 
+  plugins: [
+    require('@tailwindcss/typography'),
+    // ...
+  ],
 };

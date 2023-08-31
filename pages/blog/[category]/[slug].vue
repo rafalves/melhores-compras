@@ -1,56 +1,104 @@
-
 <template>
-  <div class="flex font-mono pt-5 py-11">
-    <div class="flex-1">
-      <div v-if="!error">
-        <div class="justify-items-center prose max-w-none shadow-lg bg-white pt-5">
-          <SlicesBreadcrumbs />
-          <SlicesArticleTitle :title="response?.data?.attributes.title" />
-          <div v-for="product in products" :key="product.data?.id"></div>
-          <ProductTable :products="products" />
+  <div class="m-2 pt-1 w-full">
 
-          <div class="px-5" v-html="content"></div>
+    <div v-if="!error">
+      <article>
+        <div class="justify-items-center shadow-lg bg-white p-2 md:p-5 rounded-xl font-poppins">
+
+          <SlicesBreadcrumbs />
+
+          <ComponentsArticleInfos
+            v-if="articleData?.data.attributes.publishedAt && articleData?.data.attributes.authors.data[0].attributes.name && articleData?.data.attributes.minsToRead"
+            :publishedAt="articleData?.data.attributes.publishedAt"
+            :authorName="articleData?.data.attributes.authors.data[0].attributes.name"
+            :minsToRead="articleData?.data.attributes.minsToRead"
+            :imgAvatar="articleData?.data.attributes.authors.data[0].attributes.photo.data.attributes.formats?.thumbnail?.url"
+            :imgAlt="articleData?.data.attributes.authors.data[0].attributes.photo.data.attributes.alternativeText" />
+
+          <h1 class="font-bold text-xl md:text-3xl font-poppins text-slate-800 text-justify">
+            {{ articleData?.data?.attributes.title ?? 'Missing Title' }}</h1>
+
+          <p class="text-sm italic text-slate-800 text-justify py-3">
+            {{ articleData?.data.attributes.lead }}</p>
+
+          <nuxt-img fit="cover" class="rounded-2xl  h-[10rem] md:h-[18rem] w-full" :src=imgBanner :alt="imgBannerAlt"
+            loading="lazy" />
+
+
+          <div class="h-4" />
+
+          <!-- contents starts here -->
+
+          <ComponentsProductDescription :table="dataTable" />
+          
+          #######
+          <ComponentsProductTable :table="dataTable" />
+
+          <ComponentsContent v-for="content in contentComponents" :key="content.id"
+            :content="getContentContent(content)" />
+
         </div>
-      </div>
+      </article>
     </div>
+    <div v-else>Erro ao carregar conteúdo</div>
   </div>
 </template>
+ 
 
 <script setup lang="ts">
+import { ContentComponent, StructureComponent } from "~/types/components/UnionComponents"
+import { Content } from "~/types/components/blocks/Content";
+import { ArticleData } from '~/types/ArticlePage';
+import { getPostBySlug } from "~/composables/api/apiQuerys"
+import { ProductTable } from "~/types/components/blocks/ProductTable";
 const route = useRoute();
 const config = useRuntimeConfig();
 const slug = route.params.slug;
-console.log("slug pagina " + slug);
+const contentType = `articles/find-by-slug/${slug}`
 
-const { data: response, error } = await useFetch<Article>(
-  `/api/article/findArticleBySlug/${slug}`
-);
-const content = computed(() =>
-  response.value?.data?.attributes.content_ckeditor != null
-    ? response.value?.data?.attributes.content_ckeditor.replaceAll(
-      "/uploads",
-      `${config.public.apiBase}/uploads`
-    )
-    : "ops... algo deu errado..."
+const { data: articleData, error } = await useFetch<ArticleData>(
+  `${config.public.apiBase}${contentType}${getPostBySlug}`
 );
 
-const productsIds = response.value?.data?.attributes.products?.data;
-let products: Product[] = [];
+const contentComponents: Ref<(ContentComponent)[]> = ref([])
+const structureComponents: Ref<(StructureComponent)[]> = ref([])
 
-if (productsIds) {
-  productsIds.sort((a, b) => (a.id ?? 0) - (b.id ?? 0));
-
-  for (const element of productsIds) {
-    if (typeof element.id !== "number" || element.id === undefined) continue;
-
-    {
-      const { data } = await useFetch<Product>(
-        `/api/findProduct?id=${element.id}`
-      );
-
-      if (data) products.push(data.value as Product);
-    }
-  }
+if (!error.value) {
+  contentComponents.value = articleData.value!.data.attributes.components
+    .filter((obj): obj is ContentComponent => 'order' in obj)
+    .slice()
+    .sort((a, b) => (a.order || 0) - (b.order || 0));
+  structureComponents.value = articleData.value!.data.attributes.components
+    .filter((obj): obj is StructureComponent => !('order' in obj))
 }
+
+
+const imgBanner = computed(() => articleData.value?.data.attributes.imgBanner.data.attributes.url ? `${config.public.apiImageBase}${articleData.value?.data.attributes.imgBanner.data.attributes.url}` : '/img/banner.jpg')
+
+const imgBannerAlt = computed(() => articleData.value?.data.attributes.imgBanner.data.attributes.alternativeText ? articleData.value?.data.attributes.imgBanner.data.attributes.alternativeText : "Imagem banner")
+
+const getContentContent = (content: ContentComponent): string => {
+  if (content.__component === 'blocks.content') {
+    const contentWithType = content as Content; // Type assertion to Content
+    return contentWithType.content;
+  }
+  return "";
+}
+
+let dataTable: ProductTable | null = null;
+
+const foundComponent = contentComponents.value.find(el => {
+  // console.log(JSON.stringify(el.__component));
+  if (el.__component === 'blocks.product-table') {
+    console.log('achei');
+    dataTable = el as ProductTable;
+    return true; // Encerrar a iteração assim que encontrar o componente
+  }
+});
+
+if (!foundComponent) {
+  // Trate o caso quando o componente não é encontrado
+}
+
 </script>
 

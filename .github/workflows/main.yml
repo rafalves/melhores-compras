@@ -1,8 +1,8 @@
 name: Nuxt Melhores-Compras.Online - CI/CD
 
-on:
-  push:
-    branches: ["main"]
+# on:
+#   push:
+#     branches: ["main"]
 
 jobs:
   build:

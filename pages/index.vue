@@ -1,9 +1,8 @@
 <template>
   <div>
 
-    <ComponentsLatestArticles />
+    <PagesLatestArticles />
 
   </div>
 </template>
 
- 

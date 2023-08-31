@@ -1,16 +1,9 @@
 <template>
-  <div class="text-sm flex flex-wrap text-slate-500 not-prose pb-5">
-    <ul
-      class="list-none mx-3"
-      v-for="(link, index) in breadcrumbs"
-      :key="index"
-    >
+  <div class="leading-loose text-xs flex flex-wrap text-slate-500 not-prose  ">
+    <ul class="list-none mx-1" v-for="(link, index) in breadcrumbs" :key="index">
       <li class="">
-        <NuxtLink
-          class="underline underline-offset-4"
-          :to="getLink(index)"
-          v-if="index != breadcrumbs.length - 1"
-        >
+        <NuxtLink class="underline underline-offset-4 hover:decoration-2 hover:font-semibold" :to="getLink(index)"
+          v-if="index != breadcrumbs.length - 1">
           {{ link }} >
         </NuxtLink>
         <span v-else>{{ link }}</span>
@@ -21,7 +14,7 @@
 
 <script setup>
 const route = useRoute();
-const breadcrumbs = route.fullPath.split("/");
+const breadcrumbs = route.fullPath.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").split("/");
 breadcrumbs[0] = "home";
 
 function getLink(index) {

@@ -1,5 +1,5 @@
+import { UnionComponents } from "./components/UnionComponents";
 import { Media } from "./components/Media";
-import { UnionComponent } from "./components/UnionComponents";
 
 export interface ArticleData {
   data: Article;
@@ -21,7 +21,7 @@ export interface Article {
     category: Category;
     authors: AuthorsData;
     imgBanner: Media;
-    components: UnionComponent[]
+    components: UnionComponents[]
   };
 };
 
@@ -37,6 +37,7 @@ export interface Author {
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
+    photo: Media,
   }
 }
 

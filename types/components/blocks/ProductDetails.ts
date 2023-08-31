@@ -4,5 +4,5 @@
 export interface ProductDetails {
   id: number,
   __component: string,
-  order?: number
+  order: number
 }

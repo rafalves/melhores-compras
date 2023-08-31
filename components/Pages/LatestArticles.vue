@@ -15,13 +15,13 @@
 
 <script setup lang="ts">
 import { useRuntimeConfig, useFetch } from "#imports";
+import { getAllLatestPosts } from "~/composables/api/apiQuerys";
 import { ArticlesData } from "~/types/ArticleLatest";
 const config = useRuntimeConfig()
-
+const contentType = 'articles'
 
 const { data: articleData } = await useFetch<ArticlesData>(
-  `${config.public.apiBase}/api/articles?sort[0]=publishedAt%3Adesc&populate[0]=category&populate[1]=category.parent&populate[2]=category.children&populate[3]=authors&populate[4]=imgBanner&pagination[start]=0&pagination[limit]=20`,
+  `${config.public.apiBase}${contentType}${getAllLatestPosts}`,
 );
 
-// console.log(JSON.stringify(articleData.value))
 </script>

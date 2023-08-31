@@ -3,6 +3,7 @@ export interface RelatedArticles {
   __component: string,
   label: string,
   articles: Article[]
+  order: number
 }
 
 export interface Article {

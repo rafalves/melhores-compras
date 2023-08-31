@@ -33,7 +33,8 @@ export const useFormatData = (data: string): string => {
   return customRelativeTime(data);
 }
 
-// export const useFormatData = (date: string): string => {
-//   dayjs.locale('pt-br');
-//   return dayjs(date).format('DD [de] MMMM [de] YYYY');
-// }
+export const useFormatData2 = (date: string): string => {
+  dayjs.locale('pt-br');
+  return dayjs(date).format('DD/MM/YYYY');
+  // return dayjs(date).format('DD [de] MMMM [de] YYYY');
+}

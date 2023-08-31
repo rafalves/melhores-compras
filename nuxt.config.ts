@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   telemetry: false,
   modules: ["@nuxtjs/tailwindcss", "nuxt-icon", '@nuxt/image'],
   devtools: { enabled: true },
-  css: ["@/assets/css/main.css"],
+  css: ["~/assets/css/main.css"],
   app: {
     layoutTransition: { name: "layout", mode: "out-in" },
     pageTransition: {
@@ -64,7 +64,7 @@ export default defineNuxtConfig({
         {
           rel: "icon",
           type: "image/svg+xml",
-          href: "shopping_bags.svg",
+          href: "/favicon.svg",
         },
       ],
     },
@@ -79,12 +79,12 @@ export default defineNuxtConfig({
   image: {
     format: ['webp'],
     screens: {
-      xs: 320,
-      sm: 640,
-      md: 768,
-      lg: 1024,
-      xl: 1280,
-      xxl: 1536,
+      'xs': 320,
+      'sm': 640,
+      'md': 768,
+      'lg': 1024,
+      'xl': 1280,
+      'xxl': 1536,
       '2xl': 1536
     },
   }

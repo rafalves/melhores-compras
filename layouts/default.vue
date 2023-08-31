@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col h-full">
+  <div class="flex flex-col h-full antialiased">
 
     <Body>
       <header>
@@ -13,7 +13,7 @@
           <aside
             class="w-full hidden md:shrink bg-yellow-100 md:flex md:max-w-[12rem] lg:max-w-[15rem] xl:max-w-[19rem] 2xl:max-w-sm " />
 
-          <main class="flex w-full grow md:max-w-[40rem] lg:max-w-full ">
+          <main class="flex w-full grow md:max-w-[40rem] lg:max-w-[55rem]">
             <slot />
           </main>
 
@@ -29,6 +29,7 @@
     </Body>
   </div>
 </template>
+
 
 <style>
 #__nuxt {
