@@ -8,18 +8,16 @@
       </header>
 
       <div class="grow">
-        <div class="flex h-full w-auto grow">
-          <!-- create aside menus later  -->
-          <aside
-            class="w-full hidden md:shrink bg-yellow-100 md:flex md:max-w-[12rem] lg:max-w-[15rem] xl:max-w-[19rem] 2xl:max-w-sm " />
+        <div class="flex h-full grow">
 
-          <main class="flex w-full grow md:max-w-[40rem] lg:max-w-[55rem]">
+          <aside class="flex-1" />
+
+          <main class="flex-auto max-w-[55rem]">
             <slot />
           </main>
 
           <!-- create aside menus later  -->
-          <aside
-            class="w-full hidden grow bg-yellow-100 md:flex md:max-w-[12rem] lg:max-w-[15rem] xl:max-w-[19rem] 2xl:max-w-sm " />
+          <aside class="flex-1" />
         </div>
       </div>
 
@@ -33,6 +31,6 @@
 
 <style>
 #__nuxt {
-  @apply bg-slate-200;
+  @apply bg-slate-200 h-full;
 }
 </style>

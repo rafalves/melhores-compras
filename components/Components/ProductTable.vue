@@ -18,7 +18,8 @@
           </td>
 
           <td class="flex flex-col items-center text-center md:text-start md:items-start mt-2 w-full">
-            <NuxtLink :to="`#${row.order}`" target="_blank" class="font-semibold text-xl hover:underline"> {{ row.title }}
+            <NuxtLink :to="`#produto${row.order}`" class="font-semibold text-xl hover:underline"> {{
+              row.title }}
             </NuxtLink>
             <p class="prose mt-3">{{ row.description }}
             </p>
@@ -40,7 +41,7 @@
 
 <script setup lang="ts">
 import { ProductTable } from '~/types/components/blocks/ProductTable';
-import { useGetImageUrl } from '~/composables/apiUtils'
+import { useGetImageUrl } from '~/composables/componentsUtils'
 
 defineProps<{
   table: ProductTable | null,

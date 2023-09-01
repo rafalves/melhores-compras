@@ -1,5 +1,5 @@
 <template>
-  <div class="m-2 pt-1 w-full">
+  <div class="my-5 w-full bg-slate-200">
 
     <div v-if="!error">
       <article>
@@ -14,6 +14,9 @@
             :minsToRead="articleData?.data.attributes.minsToRead"
             :imgAvatar="articleData?.data.attributes.authors.data[0].attributes.photo.data.attributes.formats?.thumbnail?.url"
             :imgAlt="articleData?.data.attributes.authors.data[0].attributes.photo.data.attributes.alternativeText" />
+
+          <div class="mb-3" />
+
 
           <h1 class="font-bold text-xl md:text-3xl font-poppins text-slate-800 text-justify">
             {{ articleData?.data?.attributes.title ?? 'Missing Title' }}</h1>
@@ -30,7 +33,7 @@
           <!-- contents starts here -->
 
           <ComponentsProductDescription :table="dataTable" />
-          
+
           #######
           <ComponentsProductTable :table="dataTable" />
 
@@ -90,7 +93,6 @@ let dataTable: ProductTable | null = null;
 const foundComponent = contentComponents.value.find(el => {
   // console.log(JSON.stringify(el.__component));
   if (el.__component === 'blocks.product-table') {
-    console.log('achei');
     dataTable = el as ProductTable;
     return true; // Encerrar a iteração assim que encontrar o componente
   }

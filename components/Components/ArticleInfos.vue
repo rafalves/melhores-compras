@@ -1,7 +1,7 @@
 <template>
-  <div class="flex  justify-between text-xs md:text-base my-3">
+  <div class="flex justify-end gap-4 md:text-base">
     <div class="flex">
-      <span class="mt-[5px] md:mr-2">Por {{ authorName ??
+      <span class="mt-[5px] md:mr-2 text-sm italic">Por {{ authorName ??
         "Editorial"
       }} </span>
       <!-- <div v-if="imgAvatar !== '/img/avatar.svg'">
@@ -12,9 +12,9 @@
           color="#1E293B" clas />
       </div> -->
     </div>
-    <p class=" mt-[5px]" v-if="publishedAt"> Publicado em {{
+    <p class=" mt-[5px] text-sm italic" v-if="publishedAt"> Publicado em {{
       useFormatData2(publishedAt) }} </p>
-    <p class=" mt-[5px]" v-if="minsToRead">
+    <p class=" mt-[5px] text-sm" v-if="minsToRead">
       <Icon class="-mt-[4px]" name="material-symbols:timer-outline" color="#1E293B" size="25px" />
       {{ minsToRead }} {{ minsToRead === 1 ? "min" :
         "mins" }}

@@ -29,7 +29,6 @@ export const useFormatData = (data: string): string => {
       return `${Math.floor(diffInDays / 365)} anos atrás`;
     }
   }
-
   return customRelativeTime(data);
 }
 
