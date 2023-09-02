@@ -1,36 +1,38 @@
 <template>
-  <div class="flex flex-col h-full antialiased">
+  <div>
+    <div class="flex flex-col ">
 
-    <Body>
-      <header>
+      <header class="flex-1">
         <LayoutsHeader />
         <div class="h-14" />
       </header>
 
-      <div class="grow">
-        <div class="flex h-full grow">
+      <div class="h-full">
 
-          <aside class="flex-1" />
+        <aside class="flex-1" />
 
-          <main class="flex-auto max-w-[55rem]">
-            <slot />
-          </main>
+        <main class="flex-1 mx-auto max-w-[55rem] p-1 py-3">
+          <slot />
+        </main>
 
-          <!-- create aside menus later  -->
-          <aside class="flex-1" />
-        </div>
+        <!-- create aside menus later  -->
+        <aside class="flex-1" />
       </div>
 
-      <footer>
+      <footer class="flex-1">
         <LayoutsFooter />
       </footer>
-    </Body>
+    </div>
   </div>
 </template>
 
 
 <style>
+html {
+  @apply bg-sky-400 antialiased;
+}
+
 #__nuxt {
-  @apply bg-slate-200 h-full;
+  @apply bg-slate-200 antialiased;
 }
 </style>

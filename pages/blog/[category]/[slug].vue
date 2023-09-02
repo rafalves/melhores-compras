@@ -1,5 +1,5 @@
 <template>
-  <div class="my-5 w-full bg-slate-200">
+  <div>
 
     <div v-if="!error">
       <article>

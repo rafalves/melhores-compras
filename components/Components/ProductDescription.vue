@@ -3,9 +3,9 @@
   <div class="w-full ">
 
     <div v-for="row in table?.tableRows" :key="row.id" :id="`produto${row.order}`"
-      class="bg-white flex flex-col items-center  rounded-lg my-4 md:flex-row shadow-xl hover:bg-slate-50">
+      class="bg-white flex flex-col items-center  rounded-lg my-4 md:flex-col shadow-xl hover:bg-slate-50">
 
-      <div class="flex flex-col items-center text-center md:text-start md:items-start mt-2 w-full">
+      <div class="flex flex-col items-center text-center  mt-2 w-full">
         <NuxtLink :to="row.ShopButton?.[0]?.link" target="_blank" class="font-semibold text-xl hover:underline"> {{
           row.order + "º "
           + row.title }}
@@ -23,10 +23,9 @@
 
       <ComponentsContent v-if="row.content" :content="row.content" class="p-2" />
 
-      <ClientOnly>
-        <LazyComponentsOEmbed v-if="row.oEmbed" :oembed="row.oEmbed" />
-      </ClientOnly>
+      <ComponentsOEmbed v-if="row.oEmbed" :oembed="row.oEmbed" />
 
+      <ComponentsProsCons :pros="row.pros" :cons="row.cons" />
 
     </div>
   </div>
