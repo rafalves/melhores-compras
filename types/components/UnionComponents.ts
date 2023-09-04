@@ -10,8 +10,8 @@ import { NextArticle } from "./blocks/NextArticle";
 import { PreviousArticle } from "./blocks/PreviousArticle";
 import { Seo } from "./blocks/Seo";
 
-export type ContentComponent = AdBlock | Content | ContentCKEditor | Oembed | ProductDetails | TableRow | ProductTable | RelatedArticles
+export type ContentComponent = AdBlock | Content | ContentCKEditor | Oembed | ProductDetails | TableRow | ProductTable | RelatedArticles 
 
-export type StructureComponent = NextArticle | PreviousArticle | Seo
+export type StructureComponent = NextArticle | PreviousArticle | Seo 
 
-export type UnionComponents = ContentComponent | StructureComponent
+export type UnionComponents = ContentComponent | StructureComponent  

@@ -1,4 +1,3 @@
-
 <template>
   <div class="w-full ">
 
@@ -26,6 +25,8 @@
       <ComponentsOEmbed v-if="row.oEmbed" :oembed="row.oEmbed" />
 
       <ComponentsProsCons :pros="row.pros" :cons="row.cons" />
+
+      
 
     </div>
   </div>

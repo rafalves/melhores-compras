@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-full gap-3">
+  <div v-if="pros.length || cons.length" class="flex w-full gap-3">
         <div class="flex flex-col basis-1/2">
           <div class=" bg-green-500 text-white font-semibold text-lg p-2 ml-2 rounded">Prós</div>
           <p class="pl-1 my-1" v-for="pro in pros">

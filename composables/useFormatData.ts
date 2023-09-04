@@ -6,12 +6,14 @@ export const useFormatData = (data: string): string => {
   dayjs.extend(relativeTime);
   dayjs.locale('pt-br');
 
-  function customRelativeTime(date: any) {
-    const now = dayjs();
-    const diffInHours = now.diff(date, 'hour');
-    const diffInDays = now.diff(date, 'day');
+  function customRelativeTime(date: string) {
+    const dataDayjs = dayjs(date); // Converter a string para um objeto Dayjs
 
-    if (diffInHours < 24 && now.date() === date.date()) {
+    const now = dayjs();
+    const diffInHours = now.diff(dataDayjs, 'hour');
+    const diffInDays = now.diff(dataDayjs, 'day');
+
+    if (diffInHours < 24 && now.date() === dataDayjs.date()) {
       return 'hoje';
     } else if (diffInHours < 48) {
       return '1 dia atrás';
@@ -31,7 +33,6 @@ export const useFormatData = (data: string): string => {
   }
   return customRelativeTime(data);
 }
-
 export const useFormatData2 = (date: string): string => {
   dayjs.locale('pt-br');
   return dayjs(date).format('DD/MM/YYYY');

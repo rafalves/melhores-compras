@@ -1,5 +1,7 @@
+import { ArticleData } from '~/types/ArticlePage';
 import { Formats, Media } from '~/types/components/Media';
 import { TableRow } from '~/types/components/blocks/ProductRow';
+import { getCategoryHierarchy } from './api/apiQuerys';
 
 
 export const useGetImageUrl = (obj: TableRow): string => {
@@ -33,4 +35,15 @@ export const useGetImageUrl = (obj: TableRow): string => {
     }
   }
   return placeholderImage
+}
+
+export const fetchCategoryHierarchy = async (url: string, optContentType?: string) => {
+  const contentType = optContentType ?? `articles/find-by-slug/`
+  const config = useRuntimeConfig()
+
+  const { data, error } = await useLazyFetch<ArticleData>(`${config.public.apiBase}${contentType}${url}${getCategoryHierarchy}`)
+
+  if (!error) {
+    return data.value?.data.attributes.category?.data?.attributes.hierarchy ?? "diversos"
+  }
 }

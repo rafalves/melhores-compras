@@ -14,63 +14,63 @@ export interface Article {
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
-    minsToRead: number;
-    lead: string;
-    articleUpdated: boolean;
-    keywords: string,
-    category: Category;
-    authors: AuthorsData;
-    imgBanner: Media;
-    components: UnionComponents[]
+    minsToRead?: number;
+    lead?: string;
+    articleUpdated?: boolean;
+    keywords?: string,
+    category?: Category;
+    authors?: AuthorsData;
+    imgBanner?: Media;
+    components?: UnionComponents[]
   };
 };
 
 export interface AuthorsData {
-  data: Author[];
+  data?: Author[];
 }
 
 export interface Author {
   id: number;
   attributes: {
     name: string;
-    description: string;
-    createdAt: string;
-    updatedAt: string;
-    publishedAt: string;
-    photo: Media,
+    description?: string;
+    createdAt?: string;
+    updatedAt?: string;
+    publishedAt?: string;
+    photo?: Media,
   }
 }
 
 export interface Category {
-  data: {
+  data?: {
     id: number,
     attributes: {
-      createdAt: string;
-      updatedAt: string;
-      publishedAt: string;
-      label: string;
-      hierarchy: string;
-      parent: {
-        data: {
-          id: number,
-          attributes: {
-            createdAt: string;
-            updatedAt: string;
-            publishedAt: string;
-            label: string;
-            hierarchy: string;
+      createdAt?: string;
+      updatedAt?: string;
+      publishedAt?: string;
+      label?: string;
+      hierarchy?: string;
+      parent?: {
+        data?: {
+          id?: number,
+          attributes?: {
+            createdAt?: string;
+            updatedAt?: string;
+            publishedAt?: string;
+            label?: string;
+            hierarchy?: string;
           }
         }
       }
-      children: {
-        data: {
-          id: number,
-          attributes: {
-            createdAt: string;
-            updatedAt: string;
-            publishedAt: string;
-            label: string;
-            hierarchy: string;
+      children?: {
+        data?: {
+          id?: number,
+          attributes?: {
+            createdAt?: string;
+            updatedAt?: string;
+            publishedAt?: string;
+            label?: string;
+            hierarchy?: string;
           }
         }[]
       }
