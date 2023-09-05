@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-col items-center ">
-    <ul class="list-disc">
-      <li v-for="article in relatedArticles.articles">
+    <!-- <ul class="list-disc">
+      <li v-for="article in articles">
         <p class="text-purple-800 font-medium hover:text-purple-950">
           <NuxtLink
-            :to="`/blog/${article?.attributes?.category?.data.attributes.hierarchy}/${article?.attributes?.slug}`">{{ }}
+            :to="`/blog/${article.category}/${article.url}`">{{ }}
           </NuxtLink>
         </p>
       </li>
@@ -18,7 +18,7 @@
           <NuxtLink to="#">Os 6 Melhores Desumidificadores de Ar de 2023</NuxtLink>
         </p>
       </li>
-    </ul>
+    </ul> -->
   </div>
 </template>
 
@@ -29,7 +29,26 @@ const props = defineProps<{
   relatedArticles: RelatedArticles
 }>()
 
-// console.log(JSON.stringify(props.relatedArticles, null, 1))
+const articles: { url: string, category: string }[] = []
+
+if (props.relatedArticles) {
+  console.log('1');
+  const articlePromises = (props.relatedArticles.articles || []).map(async (el) => {
+    if (el.attributes.slug) {
+      const category = fetchCategoryHierarchy(el.attributes.slug);
+      return {
+        url: el.attributes.slug, category: category ||
+          ''
+      };
+    }
+  });
+
+  const resolvedArticles = await Promise.all(articlePromises);
+
+  // articles.push(...resolvedArticles);
+  console.log(articles);
+}
+
 
 
 </script>

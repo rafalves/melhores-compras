@@ -17,8 +17,8 @@ const props = defineProps<{
 }>()
 
 const parsed = props.content.replaceAll(
-        "/uploads",
-        `${config.public.apiImageBase}/uploads`
+  "/uploads",
+  `${config.public.apiImageBase}/uploads`
 )
 
 const html = md.render(parsed) 

@@ -28,5 +28,5 @@ function getLink(index) {
   return `/${breadcrumbs[index]}`;
 }
 
-console.log(route.fullPath)
+// console.log(route.fullPath)
 </script>

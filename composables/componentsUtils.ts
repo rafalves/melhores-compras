@@ -38,6 +38,7 @@ export const useGetImageUrl = (obj: TableRow): string => {
 }
 
 export const fetchCategoryHierarchy = async (url: string, optContentType?: string) => {
+  console.log('chemei')
   const contentType = optContentType ?? `articles/find-by-slug/`
   const config = useRuntimeConfig()
 
