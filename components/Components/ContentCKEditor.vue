@@ -15,10 +15,11 @@ const props = defineProps<{
 
 let parsed: string = ""
 if (props.content) {
-  parsed = props.content.replaceAll(
-    "/uploads",
-    `${config.public.apiImageBase}/uploads`
-  )
+  parsed = props.content
+  // parsed = props.content.replaceAll(
+  //   "/uploads",
+  //   `${config.public.apiImageBase}/uploads`
+  // )
 }
 
 </script>
