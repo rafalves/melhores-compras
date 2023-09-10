@@ -5,11 +5,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
   app: {
-    layoutTransition: { name: "layout", mode: "out-in" },
-    pageTransition: {
-      name: "fade",
-      mode: "out-in", // default
-    },
     head: {
       title: "Melhores-Compras.Online",
       meta: [
@@ -21,10 +16,6 @@ export default defineNuxtConfig({
         {
           name: "lomadee-verification",
           content: "23174711",
-        },
-        {
-          name: "robots",
-          content: "index, max-image-preview:large",
         },
         {
           name: "og:type",
@@ -45,7 +36,7 @@ export default defineNuxtConfig({
         },
         {
           property: "og:url",
-          content: "https://melhores-compras.online",
+          content: "https://www.melhores-compras.online",
         },
         {
           property: "og:site_name",
@@ -59,7 +50,7 @@ export default defineNuxtConfig({
       link: [
         {
           rel: "canocical",
-          href: "https://melhores-compras.online",
+          href: "https://www.melhores-compras.online",
         },
         {
           rel: "icon",
