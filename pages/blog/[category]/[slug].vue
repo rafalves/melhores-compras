@@ -160,7 +160,7 @@ const imgBannerAlt = computed(() => articleData.value?.data?.attributes.imgBanne
 
 useHead({
   title: articleData.value?.data.attributes.title,
-  titleTemplate: (titleChunk) => titleChunk ? `${titleChunk} - Melhores Compras Online` : 'Melhores Compras Online',
+  titleTemplate: (titleChunk) => titleChunk ? `${titleChunk} | Melhores Compras Online` : 'Melhores Compras Online',
   meta: [
     { name: 'description', content: seoData?.metaDescription ? seoData?.metaDescription : 'description' }
   ]
@@ -168,24 +168,18 @@ useHead({
 
 useSeoMeta({
   twitterCard: () => 'summary',
-  twitterTitle: () => seoData?.metaTitle,
+  twitterTitle: () => articleData?.value?.data?.attributes.title,
   twitterDescription: () => seoData?.metaDescription,
   twitterImage: () => imgBanner.value,
-  twitterImageAlt: () => seoData?.metaImage?.data.attributes.alternativeText,
+  twitterImageAlt: () => imgBannerAlt.value,
   twitterSite: () => '@melhorescomprs',
   twitterCreator: () => '@melhorescomprs',
   themeColor: () => '#38BDF8',
-  // og: type,
-  // og: Title,
-  // og: description,
-  // og: URL,
-  // og: Image,
-  // og: sitename,
-
-
-
-
-
+  ogUrl: 'https://www.melhores-compras.online',
+  ogTitle: () => articleData?.value?.data?.attributes.title,
+  ogDescription: () => seoData?.metaDescription,
+  ogImage: () => imgBanner.value,
+  ogImageAlt: () => imgBannerAlt.value,
 })
 </script>
 
