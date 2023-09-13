@@ -9,73 +9,56 @@ export default defineNuxtConfig({
       title: "Melhores Compras Online",
       meta: [
         {
-          name: "description",
-          content:
-            "Melhores Compras Online | Análise, Promoção e Informação de Produtos Encontrados na Internet",
+          name: "description", content: "Melhores Compras Online | Análise, Promoção e Informação de Produtos Encontrados na Internet",
         },
         {
-          name: "lomadee-verification",
-          content: "23174711",
+          name: "lomadee-verification", content: "23174711",
         },
         {
-          property: "og:type",
-          content: "website",
+          property: "og:locale", content: "pt_BR",
         },
         {
-          property: "og:locale",
-          content: "pt_BR",
+          property: "og:type", content: "website",
         },
         {
-          property: "og:title",
-          content: "Melhores Compras Online",
+          property: "og:url", content: "https://www.melhores-compras.online",
         },
         {
-          property: "og:description",
-          content:
-            "Melhores Compras Online | Análise, Promoção e Informação de produtos encontrados na internet",
+          property: "og:site_name", content: "Melhores Compras Online",
         },
         {
-          property: "og:url",
-          content: "https://www.melhores-compras.online",
+          property: "og:title", content: "Melhores Compras Online",
         },
         {
-          property: "og:image",
-          content: "https://www.melhores-compras.online/img/banner.jpg",
+          property: "og:description", content: "Melhores Compras Online | Análise, Promoção e Informação de produtos encontrados na internet",
         },
         {
-          property: "og:site_name",
-          content: "Melhores Compras Online",
+          property: "og:image", content: "https://www.melhores-compras.online/img/banner.jpg",
         },
         {
-          name: "twitter:card",
-          content: "summary_large_image",
+          property: "og:image:alt", content: "Banner do Site Escrito Melhores Compras Online",
         },
         {
-          name: "twitter:site",
-          content: "@melhorescomprs",
+          name: "twitter:card", content: "summary_large_image",
         },
         {
-          name: "twitter:creator",
-          content: "@melhorescomprs",
+          name: "twitter:title", content: "Melhores Compras Online",
         },
         {
-          name: "twitter:title",
-          content: "Melhores Compras Online",
+          name: "twitter:description", content: "Melhores Compras Online | Análise, Promoção e Informação de Produtos Encontrados na Internet",
         },
         {
-          name: "twitter:description",
-          content:
-            "Melhores Compras Online | Análise, Promoção e Informação de produtos encontrados na internet",
+          name: "twitter:site", content: "@melhorescomprs",
         },
         {
-          property: "og:image:alt",
-          content:
-            "Banner Pipoca",
+          name: "twitter:creator", content: "@melhorescomprs",
         },
         {
-          name: "twitter:image:alt",
-          content:
-            "Banner Pipoca",
+          name: "twitter:image", content: "https://www.melhores-compras.online/img/banner.jpg",
+        },
+        {
+          name: "twitter:image:alt", content:
+            "Banner do Site Escrito Melhores Compras Online",
         },
 
       ],
