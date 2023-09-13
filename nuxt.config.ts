@@ -44,7 +44,7 @@ export default defineNuxtConfig({
         },
         {
           name: "twitter:card",
-          content: "melhores-comprasonline-low-resolution-color-logo.png",
+          content: "summary",
         },
       ],
       link: [

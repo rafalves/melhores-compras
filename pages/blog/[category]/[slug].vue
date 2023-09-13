@@ -171,7 +171,7 @@ useSeoMeta({
   twitterTitle: () => seoData?.metaTitle,
   twitterDescription: () => seoData?.metaDescription,
   twitterImage: () => seoData?.metaImage?.data.attributes.url,
-  twitterImageAlt: () => seoData?.metaImage?.data.attributes.alternativeText,
+  twitterImageAlt: () => `${config.apiImageBase}${seoData?.metaImage?.data.attributes.alternativeText}`,
   twitterSite: () => '@melhorescomprs',
   twitterCreator: () => '@melhorescomprs',
   themeColor: () => '#38BDF8',
