@@ -158,21 +158,20 @@ const imgBanner = computed(() => articleData.value?.data?.attributes.imgBanner?.
 
 const imgBannerAlt = computed(() => articleData.value?.data?.attributes.imgBanner?.data.attributes.alternativeText ? articleData.value?.data.attributes.imgBanner.data.attributes.alternativeText : "Imagem banner")
 
-// useHead({
-//   title: articleData.value?.data.attributes.title,
-//   titleTemplate: (titleChunk) => titleChunk ? `${titleChunk} - Melhores Compras Online` : 'Melhores Compras Online',
-//   meta: [
-//     { name: 'description', content: seoData?.metaDescription ? seoData?.metaDescription : 'description' }
-//   ]
-// })
+useHead({
+  title: articleData.value?.data.attributes.title,
+  titleTemplate: (titleChunk) => titleChunk ? `${titleChunk} - Melhores Compras Online` : 'Melhores Compras Online',
+  meta: [
+    { name: 'description', content: seoData?.metaDescription ? seoData?.metaDescription : 'description' }
+  ]
+})
 
 useSeoMeta({
-  title: () => articleData.value?.data.attributes.title ? `${articleData.value?.data.attributes.title} - Melhores Compras Online` : 'Melhores Compras Online',
   twitterCard: () => 'summary',
   twitterTitle: () => seoData?.metaTitle,
   twitterDescription: () => seoData?.metaDescription,
-  twitterImage: () => 'url image',
-  twitterImageAlt: () => 'alt image',
+  twitterImage: () => seoData?.metaImage?.data.attributes.url,
+  twitterImageAlt: () => seoData?.metaImage?.data.attributes.alternativeText,
   twitterSite: () => '@melhorescomprs',
   twitterCreator: () => '@melhorescomprs',
   themeColor: () => '#38BDF8',
