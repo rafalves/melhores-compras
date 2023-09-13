@@ -34,27 +34,27 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: "/home/rafael/melhores-compras/"
-          EXCLUDE: "/.nuxt/, /.output/, .env.dev, /node_modules/, package-lock.json"
+          EXCLUDE: "/.nuxt/, /.output/, /node_modules/, package-lock.json"
           SCRIPT_BEFORE: |
             echo "SCRIPT_BEFORE"
             echo "🚀🚀🚀 STOP PM2 🚀🚀🚀"
-            echo "pm2 delete nuxtapp-mecomprs"
+            echo "📍pm2 delete nuxtapp-mecomprs"
             pm2 delete nuxtapp-mecomprs
-            echo "pm2 status" 
+            echo "📍pm2 status" 
             pm2 status
           SCRIPT_AFTER: |
             echo "SCRIPT_AFTER"
             echo "🚀🚀🚀 CD to Folder 🚀🚀🚀"
             echo "cd melhores-compras/"
             cd melhores-compras/
-            echo"npm install"
+            echo"📍npm install"
             npm install
-            echo "npm run build"
+            echo "📍npm run build"
             npm run build
             echo "🚀🚀🚀 Runnin PM2 - nuxtapp-mecomprs 🚀🚀🚀"
-            echo "pm2 start ecosystem.config.js"
+            echo "📍pm2 start ecosystem.config.js"
             pm2 start ecosystem.config.js
-            echo "pm2 status"
+            echo "📍pm2 status"
             pm2 status
             echo $RSYNC_STDOUT
             echo "✅✅✅ END SCRIPT ✅✅✅"

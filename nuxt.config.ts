@@ -6,12 +6,12 @@ export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
   app: {
     head: {
-      title: "Melhores-Compras.Online",
+      title: "Melhores Compras Online",
       meta: [
         {
           name: "description",
           content:
-            "Análise, Promoção e Informação de produtos encontrados na internet",
+            "Melhres Compras Online | Análise, Promoção e Informação de Produtos Encontrados na Internet",
         },
         {
           name: "lomadee-verification",
@@ -27,12 +27,12 @@ export default defineNuxtConfig({
         },
         {
           property: "og:title",
-          content: "Melhores-Compras.Online",
+          content: "Melhores Compras Online",
         },
         {
           property: "og:description",
           content:
-            "Análise, Promoção e Informação de produtos encontrados na internet",
+            "Melhres Compras Online | Análise, Promoção e Informação de produtos encontrados na internet",
         },
         {
           property: "og:url",
@@ -40,7 +40,7 @@ export default defineNuxtConfig({
         },
         {
           property: "og:site_name",
-          content: "Melhores-Compras.Online",
+          content: "Melhores Compras Online",
         },
         {
           name: "twitter:card",

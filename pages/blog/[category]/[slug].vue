@@ -69,12 +69,14 @@ import { Ref, ref, computed, resolveComponent } from 'vue'
 import { useFetch, useRoute, useRuntimeConfig } from 'nuxt/app';
 import { ContentComponent, StructureComponent } from "~/types/components/UnionComponents"
 import { Content } from "~/types/components/blocks/Content";
+import { Seo } from "~/types/components/blocks/Seo";
 import { ArticleData } from '~/types/ArticlePage';
 import { getPostBySlug } from "~/composables/api/apiQuerys"
 import { ProductTable } from "~/types/components/blocks/ProductTable";
 import { TableRow } from '~/types/components/blocks/ProductRow';
 import { ContentCKEditor } from '~/types/components/blocks/ContentCKEditor';
 import { Oembed } from '~/types/components/blocks/Oembed';
+import { Title } from 'nuxt/dist/head/runtime/components';
 const route = useRoute();
 const config = useRuntimeConfig();
 const slug = route.params.slug;
@@ -86,6 +88,7 @@ const { data: articleData, error } = await useFetch<ArticleData>(
 
 const contentComponents: Ref<(ContentComponent)[]> = ref([])
 const structureComponents: Ref<(StructureComponent)[]> = ref([])
+let seoData: Seo | null = null;
 
 if (!error.value) {
   const components = articleData.value?.data.attributes.components;
@@ -97,6 +100,12 @@ if (!error.value) {
 
     structureComponents.value = components
       .filter((obj): obj is StructureComponent => !('order' in obj));
+
+    const seoObj = components.find((obj): obj is Seo => obj.__component === 'shared.seo');
+
+    if (seoObj) {
+      seoData = seoObj;
+    }
   }
 }
 
@@ -149,17 +158,35 @@ const imgBanner = computed(() => articleData.value?.data?.attributes.imgBanner?.
 
 const imgBannerAlt = computed(() => articleData.value?.data?.attributes.imgBanner?.data.attributes.alternativeText ? articleData.value?.data.attributes.imgBanner.data.attributes.alternativeText : "Imagem banner")
 
-let dataTable: ProductTable | null = null;
-let dataRow: TableRow | null = null;
-let contentCKEditor: string = "";
-let oembed: string = "";
+// useHead({
+//   title: articleData.value?.data.attributes.title,
+//   titleTemplate: (titleChunk) => titleChunk ? `${titleChunk} - Melhores Compras Online` : 'Melhores Compras Online',
+//   meta: [
+//     { name: 'description', content: seoData?.metaDescription ? seoData?.metaDescription : 'description' }
+//   ]
+// })
 
-const foundComponent3 = contentComponents.value.find(el => {
-  if (el?.__component === 'blocks.content-ck-editor') {
-    contentCKEditor = (el as ContentCKEditor).contentCKEditor;
-    return true; // Encerrar a iteração assim que encontrar o componente
-  }
-});
+useSeoMeta({
+  title: () => articleData.value?.data.attributes.title ? `${articleData.value?.data.attributes.title} - Melhores Compras Online` : 'Melhores Compras Online',
+  twitterCard: () => 'summary',
+  twitterTitle: () => seoData?.metaTitle,
+  twitterDescription: () => seoData?.metaDescription,
+  twitterImage: () => 'url image',
+  twitterImageAlt: () => 'alt image',
+  twitterSite: () => '@melhorescomprs',
+  twitterCreator: () => '@melhorescomprs',
+  themeColor: () => '#38BDF8',
+  // og: type,
+  // og: Title,
+  // og: description,
+  // og: URL,
+  // og: Image,
+  // og: sitename,
 
+
+
+
+
+})
 </script>
 
