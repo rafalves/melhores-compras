@@ -58,6 +58,15 @@ export default defineNuxtConfig({
           name: "twitter:creator",
           content: "@melhorescomprs",
         },
+        {
+          name: "twitter:title",
+          content: "Melhores Compras Online",
+        },
+        {
+          name: "twitter:description",
+          content:
+            "Melhres Compras Online | Análise, Promoção e Informação de produtos encontrados na internet",
+        },
 
       ],
       link: [
