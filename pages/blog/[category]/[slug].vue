@@ -76,7 +76,6 @@ import { ProductTable } from "~/types/components/blocks/ProductTable";
 import { TableRow } from '~/types/components/blocks/ProductRow';
 import { ContentCKEditor } from '~/types/components/blocks/ContentCKEditor';
 import { Oembed } from '~/types/components/blocks/Oembed';
-import { Title } from 'nuxt/dist/head/runtime/components';
 const route = useRoute();
 const config = useRuntimeConfig();
 const slug = route.params.slug;
@@ -169,7 +168,7 @@ useHead({
 useSeoMeta({
   twitterCard: () => 'summary',
   twitterTitle: () => articleData?.value?.data?.attributes.title,
-  twitterDescription: () => seoData?.metaDescription,
+  twitterDescription: () => articleData?.value?.data.attributes.lead,
   twitterImage: () => imgBanner.value,
   twitterImageAlt: () => imgBannerAlt.value,
   twitterSite: () => '@melhorescomprs',
@@ -177,9 +176,10 @@ useSeoMeta({
   themeColor: () => '#38BDF8',
   ogUrl: 'https://www.melhores-compras.online',
   ogTitle: () => articleData?.value?.data?.attributes.title,
-  ogDescription: () => seoData?.metaDescription,
+  ogDescription: () => articleData?.value?.data.attributes.lead,
   ogImage: () => imgBanner.value,
   ogImageAlt: () => imgBannerAlt.value,
+  ogType: 'article',
 })
 </script>
 

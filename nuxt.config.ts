@@ -18,11 +18,11 @@ export default defineNuxtConfig({
           content: "23174711",
         },
         {
-          name: "og:type",
+          property: "og:type",
           content: "website",
         },
         {
-          name: "og:locale",
+          property: "og:locale",
           content: "pt_BR",
         },
         {
@@ -45,10 +45,6 @@ export default defineNuxtConfig({
         {
           property: "og:site_name",
           content: "Melhores Compras Online",
-        },
-        {
-          name: "twitter:card",
-          content: "summary",
         },
       ],
       link: [
