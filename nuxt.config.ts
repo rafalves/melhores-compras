@@ -39,7 +39,7 @@ export default defineNuxtConfig({
           content: "https://www.melhores-compras.online",
         },
         {
-          property: "og:img",
+          property: "og:image",
           content: "https://www.melhores-compras.online/img/banner.jpg",
         },
         {
