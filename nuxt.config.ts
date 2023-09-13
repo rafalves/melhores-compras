@@ -11,7 +11,7 @@ export default defineNuxtConfig({
         {
           name: "description",
           content:
-            "Melhres Compras Online | Análise, Promoção e Informação de Produtos Encontrados na Internet",
+            "Melhores Compras Online | Análise, Promoção e Informação de Produtos Encontrados na Internet",
         },
         {
           name: "lomadee-verification",
@@ -32,7 +32,7 @@ export default defineNuxtConfig({
         {
           property: "og:description",
           content:
-            "Melhres Compras Online | Análise, Promoção e Informação de produtos encontrados na internet",
+            "Melhores Compras Online | Análise, Promoção e Informação de produtos encontrados na internet",
         },
         {
           property: "og:url",
@@ -65,7 +65,17 @@ export default defineNuxtConfig({
         {
           name: "twitter:description",
           content:
-            "Melhres Compras Online | Análise, Promoção e Informação de produtos encontrados na internet",
+            "Melhores Compras Online | Análise, Promoção e Informação de produtos encontrados na internet",
+        },
+        {
+          property: "og:image:alt",
+          content:
+            "Banner Pipoca",
+        },
+        {
+          name: "twitter:image:alt",
+          content:
+            "Banner Pipoca",
         },
 
       ],
