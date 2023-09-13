@@ -46,6 +46,19 @@ export default defineNuxtConfig({
           property: "og:site_name",
           content: "Melhores Compras Online",
         },
+        {
+          name: "twitter:card",
+          content: "summary_large_image",
+        },
+        {
+          name: "twitter:site",
+          content: "@melhorescomprs",
+        },
+        {
+          name: "twitter:creator",
+          content: "@melhorescomprs",
+        },
+
       ],
       link: [
         {
