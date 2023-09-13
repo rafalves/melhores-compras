@@ -15,6 +15,28 @@ export default defineNuxtConfig({
           name: "lomadee-verification", content: "23174711",
         },
         {
+          name: "twitter:card", content: "summary_large_image",
+        },
+        {
+          name: "twitter:title", content: "Melhores Compras Online",
+        },
+        {
+          name: "twitter:description", content: "Melhores Compras Online | Análise, Promoção e Informação de Produtos Encontrados na Internet",
+        },
+        {
+          name: "twitter:site", content: "@melhorescomprs",
+        },
+        {
+          name: "twitter:creator", content: "@melhorescomprs",
+        },
+        {
+          name: "twitter:image", content: "https://www.melhores-compras.online/img/banner.jpg",
+        },
+        {
+          name: "twitter:image:alt", content:
+            "Banner do Site Escrito Melhores Compras Online",
+        },
+        {
           property: "og:locale", content: "pt_BR",
         },
         {
@@ -38,29 +60,6 @@ export default defineNuxtConfig({
         {
           property: "og:image:alt", content: "Banner do Site Escrito Melhores Compras Online",
         },
-        {
-          name: "twitter:card", content: "summary_large_image",
-        },
-        {
-          name: "twitter:title", content: "Melhores Compras Online",
-        },
-        {
-          name: "twitter:description", content: "Melhores Compras Online | Análise, Promoção e Informação de Produtos Encontrados na Internet",
-        },
-        {
-          name: "twitter:site", content: "@melhorescomprs",
-        },
-        {
-          name: "twitter:creator", content: "@melhorescomprs",
-        },
-        {
-          name: "twitter:image", content: "https://www.melhores-compras.online/img/banner.jpg",
-        },
-        {
-          name: "twitter:image:alt", content:
-            "Banner do Site Escrito Melhores Compras Online",
-        },
-
       ],
       link: [
         {
