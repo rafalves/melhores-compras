@@ -5,7 +5,7 @@
 
       <h3>{{ question?.question }}</h3>
       <p>{{ question?.answer }}</p>
-
+      <SchemaOrgWebPage type="FAQPage" />
       <SchemaOrgQuestion :name=question.question :accepted-answer=question.answer />
     </div>
   </section>
