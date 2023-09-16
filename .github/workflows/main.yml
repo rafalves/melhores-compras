@@ -47,7 +47,7 @@ jobs:
             echo "🚀🚀🚀 CD to Folder 🚀🚀🚀"
             echo "cd melhores-compras/"
             cd melhores-compras/
-            echo"📍npm install"
+            echo "📍npm install"
             npm install
             echo "📍npm run build"
             npm run build
