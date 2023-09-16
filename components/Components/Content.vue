@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <div v-if="content" class="prose prose-stone max-w-none" v-html="html" />
-  </div>
+  <section class="mt-8">
+    <div v-if="content" class="prose max-w-none font-montserrat" v-html="html" />
+  </section>
 </template>
 
 <script setup lang="ts">

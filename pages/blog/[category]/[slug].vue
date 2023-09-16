@@ -46,9 +46,11 @@
             <component v-else-if="component.__component === 'blocks.content-ck-editor' && component.order"
               :is="getComponentName(component.__component)" :content="getProps(component.order)" />
 
+            <component v-else-if="component.__component === 'blocks.faq' && component.order"
+              :is="getComponentName(component.__component)" :qa="getProps(component.order)" />
+
             <component v-else-if="component.__component === 'adsense.ad-block' && component.order"
               :is="getComponentName(component.__component)" />
-
 
             <div v-else class="bg-red-400 w-full">{{ component.__component }}</div>
           </div>
@@ -76,6 +78,7 @@ import { ProductTable } from "~/types/components/blocks/ProductTable";
 import { TableRow } from '~/types/components/blocks/ProductRow';
 import { ContentCKEditor } from '~/types/components/blocks/ContentCKEditor';
 import { Oembed } from '~/types/components/blocks/Oembed';
+import { QA } from '~/types/components/blocks/Faq';
 const route = useRoute();
 const config = useRuntimeConfig();
 const slug = route.params.slug;
@@ -122,6 +125,8 @@ function getComponentName(__component: string): any {
       return resolveComponent('Components/OEmbed')
     case 'blocks.content-ck-editor':
       return resolveComponent('Components/ContentCKEditor')
+    case 'blocks.faq':
+      return resolveComponent('Components/QA')
     case 'adsense.ad-block':
       return resolveComponent('Components/AdBlock')
     default:
@@ -138,7 +143,7 @@ function getProps(order: number): ContentComponent | string | undefined {
       return contentBlock as ProductTable
     case 'blocks.product-detais':
       // product detais (type error, should be details) is just a placeholder for
-      // the rendering every product of product-table in a more complete way
+      // rendering every product of product-table in a more complete way
       return contentComponents.value.find(el => el.__component === 'blocks.product-table') as ProductTable
     case 'blocks.row-table':
       return contentBlock as TableRow
@@ -146,6 +151,8 @@ function getProps(order: number): ContentComponent | string | undefined {
       return (contentBlock as Oembed).oEmbed ?? ""
     case 'blocks.content-ck-editor':
       return (contentBlock as ContentCKEditor).contentCKEditor ?? ""
+    case 'blocks.faq':
+      return contentBlock as QA
     case 'adsense.ad-block':
       return
     default:
@@ -157,6 +164,8 @@ const imgBanner = computed(() => articleData.value?.data?.attributes.imgBanner?.
 
 const imgBannerAlt = computed(() => articleData.value?.data?.attributes.imgBanner?.data.attributes.alternativeText ? articleData.value?.data.attributes.imgBanner.data.attributes.alternativeText : "Imagem banner")
 
+
+// SEO Configs
 useHead({
   title: articleData.value?.data.attributes.title,
   titleTemplate: (titleChunk) => titleChunk ? `${titleChunk} | Melhores Compras Online` : 'Melhores Compras Online',
@@ -181,5 +190,41 @@ useSeoMeta({
   ogImageAlt: () => imgBannerAlt.value,
   ogType: 'article',
 })
+
+// nuxt-schema-org
+const breadcrumbs = route.path.split('/').filter(el => el !== "").map(el => "/" + el)
+
+useSchemaOrg([
+  defineOrganization({
+    name: 'Melhores Compras Online',
+    logo: '/img/banner.jpg',
+    inLanguage: 'pt_BR',
+    tagPosition: 'head',
+    url: 'https://melhores-compras.online',
+    description: 'Melhores Compras Online | Análise, Promoção e Informação de Produtos Encontrados na Internet',
+  }),
+  defineArticle({
+    '@type': 'BlogPosting',
+    image: articleData.value?.data.attributes.imgBanner?.data.attributes.url,
+    datePublished: articleData.value?.data.attributes.publishedAt,
+    dateModified: articleData.value?.data.attributes.updatedAt,
+    headline: articleData.value?.data.attributes.lead,
+    author: [
+      {
+        name: articleData.value?.data.attributes.authors?.data?.[0].attributes.name,
+        url: 'https://github.com/rafalves',
+        image: articleData.value?.data.attributes.authors?.data?.[0].attributes.photo?.data.attributes.url
+      }
+    ]
+  }),
+  defineBreadcrumb({
+    itemListElement: [
+      { name: 'Blog', item: breadcrumbs[0] },
+      { name: articleData.value?.data.attributes.category?.data?.attributes.label, item: breadcrumbs[2] + breadcrumbs[1] },
+      { name: articleData.value?.data.attributes.title, item: route.path },
+    ]
+  }),
+])
+
 </script>
 

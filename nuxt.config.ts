@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   telemetry: false,
-  modules: ["@nuxtjs/tailwindcss", "nuxt-icon", '@nuxt/image'],
+  modules: ["@nuxtjs/tailwindcss", "nuxt-icon", '@nuxt/image', 'nuxt-schema-org'],
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
   app: {
@@ -52,7 +52,7 @@ export default defineNuxtConfig({
           property: "og:title", content: "Melhores Compras Online",
         },
         {
-          property: "og:description", content: "Melhores Compras Online | Análise, Promoção e Informação de produtos encontrados na internet",
+          property: "og:description", content: "Melhores Compras Online | Análise, Promoção e Informação de Produtos Encontrados na Internet",
         },
         {
           property: "og:image", content: "https://www.melhores-compras.online/img/banner.jpg",
@@ -75,12 +75,13 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
-    // Keys within public, will be also exposed to the client-side
     public: {
-      apiBase: "https://www.melhores-compras.online/dev/api/", // can be overridden by NUXT_PUBLIC_API_BASE environment variable
-      apiImageBase: "https://www.melhores-compras.online/dev", // can be overridden by NUXT_PUBLIC_API_BASE environment variable
+      apiBase: "https://www.melhores-compras.online/dev/api/",
+      apiImageBase: "https://www.melhores-compras.online/dev",
+      urlBase: "https://www.melhores-compras.online",
     },
   },
+  //@nuxt-image
   image: {
     format: ['webp'],
     screens: {
@@ -93,8 +94,15 @@ export default defineNuxtConfig({
       '2xl': 1536
     },
   },
-  // experimental: {
-  //   componentIslands: true
-  // }
-
+  // nuxt-schema-org
+  // default config
+  site: {
+    host: 'https://melhores-compras.online',
+    url: 'https://melhores-compras.online',
+    name: 'Melhores Compras Online',
+    inLanguage: 'pt_BR',
+    tagPosition: 'head',
+    image: '/img/banner.jpg',
+    escription: 'Melhores Compras Online | Análise, Promoção e Informação de Produtos Encontrados na Internet',
+  }
 });

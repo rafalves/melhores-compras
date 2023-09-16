@@ -1,7 +1,6 @@
 
 <template>
-  <div class="flex justify-center">
-
+  <section class="flex justify-center mt-8">
     <table class="w-full">
       <tbody>
         <tr v-for="row in table?.tableRows" :key="row.id"
@@ -32,11 +31,12 @@
                 {{ row.ShopButton?.[0]?.label ?? "Ver Preço" }}</NuxtLink>
             </div>
           </td>
-
         </tr>
+
+
       </tbody>
     </table>
-  </div>
+  </section>
 </template> 
 
 <script setup lang="ts">
@@ -46,8 +46,4 @@ import { useGetImageUrl } from '~/composables/componentsUtils'
 defineProps<{
   table: ProductTable | null,
 }>();
-
-
-
-
 </script>

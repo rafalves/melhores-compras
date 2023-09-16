@@ -9,9 +9,10 @@ import { RelatedArticles } from "./blocks/RelatedArticles";
 import { NextArticle } from "./blocks/NextArticle";
 import { PreviousArticle } from "./blocks/PreviousArticle";
 import { Seo } from "./blocks/Seo";
+import { QA } from "./blocks/Faq";
 
-export type ContentComponent = AdBlock | Content | ContentCKEditor | Oembed | ProductDetails | TableRow | ProductTable | RelatedArticles 
+export type ContentComponent = AdBlock | Content | ContentCKEditor | Oembed | ProductDetails | TableRow | ProductTable | RelatedArticles | QA
 
-export type StructureComponent = NextArticle | PreviousArticle | Seo 
+export type StructureComponent = NextArticle | PreviousArticle | Seo
 
 export type UnionComponents = ContentComponent | StructureComponent  
