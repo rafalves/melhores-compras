@@ -58,7 +58,7 @@
 <script setup>
 
 useSeoMeta({
-  title: 'Políticas de Privacidade  | Melhores Compras Online',
+  title: 'Políticas de Privacidade | Melhores Compras Online',
   description: 'Conheça nossas políticas de privacidade.',
   twitterCard: () => 'summary',
   twitterTitle: () => 'Política de Privacidade',
@@ -76,24 +76,30 @@ useSeoMeta({
   ogType: 'article',
 })
 
-// nuxt-schema-org 
-useSchemaOrg([
-  defineOrganization({
-    name: 'Melhores Compras Online',
-    logo: 'https://www.melhores-compras.online/img/banner.jpg',
-    inLanguage: 'pt_BR',
-    tagPosition: 'head',
-    url: 'https://melhores-compras.online',
-    description: 'Melhores Compras Online | Análise, Promoção e Informação de Produtos Encontrados na Internet',
-  }),
-  defineWebPage({
-    '@type': 'WebPage',
-    name: 'Política de Privacidade',
-    image: 'https://www.melhores-compras.online/img/banner.jpg',
-    description: 'Conheça nossas políticas de privacidade.',
-    url: 'https://www.melhores-compras.online/politica-de-privacidade'
-  })
-])
+// nuxt-jsonld
+useJsonld({
+  "@context": "http://schema.org",
+  "@graph":
+    [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": "https://www.melhores-compras.online",
+            "name": "Melhores Compras Online"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": "https://www.melhores-compras.online/policitica-de-privacidade",
+            "name": "Política de Privacidade"
+          }
+        ]
+      },
+    ]
+})
 </script>
 
 <style scoped></style>
