@@ -61,19 +61,19 @@ const submitForm = async () => {
 }
 
 useSeoMeta({
-  title: 'Políticas de Privacidade  | Melhores Compras Online',
-  description: 'Conheça nossas políticas de privacidade.',
+  title: 'Contato | Melhores Compras Online',
+  description: 'Entre em contato conosco',
   twitterCard: () => 'summary',
-  twitterTitle: () => 'Política de Privacidade',
-  twitterDescription: () => 'Conheça nossas políticas de privacidade.',
+  twitterTitle: () => 'Contato',
+  twitterDescription: () => 'Ente em contato conosco',
   twitterImage: () => 'https://www.melhores-compras.online/img/banner.jpg',
   twitterImageAlt: () => 'Banner Melhores Compras Online',
   twitterSite: () => '@melhorescomprs',
   twitterCreator: () => '@melhorescomprs',
   themeColor: () => '#38BDF8',
   ogUrl: 'https://www.melhores-compras.online',
-  ogTitle: () => 'Política de Privacidade',
-  ogDescription: () => 'Conheça nossas políticas de privacidade.',
+  ogTitle: () => 'Contato',
+  ogDescription: () => 'Entre em contato conosco',
   ogImage: () => 'https://www.melhores-compras.online/img/banner.jpg',
   ogImageAlt: () => 'Banner Melhores Compras Online',
   ogType: 'article',
@@ -96,8 +96,8 @@ useJsonld({
           {
             "@type": "ListItem",
             "position": 2,
-            "item": "https://www.melhores-compras.online/policitica-de-privacidade",
-            "name": "Melhores Compras Online"
+            "item": "https://www.melhores-compras.online/contato",
+            "name": "Contato"
           }
         ]
       },
