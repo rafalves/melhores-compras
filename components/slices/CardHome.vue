@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded-3xl w-[18rem] h-[22rem] hover:shadow-2xl bg-white">
+  <div class="rounded-lg w-[18rem] h-[22rem] hover:shadow-2xl bg-white">
     <NuxtLink :to="`/blog/${article?.attributes?.category?.data.attributes.hierarchy}/${article?.attributes?.slug}`">
       <SlicesCardImage :imgUrl="`${config.public.apiImageBase}${article?.attributes.imgBanner.data.attributes.url}`"
         :imgAlt="article?.attributes.imgBanner.data.attributes.alternativeText" />
@@ -14,7 +14,7 @@
 
       <div class="mt-3 px-3 line-clamp-3 h-[4.5rem]">
         <h1
-          class="text-neutral-800 text-md font-poppins font-semibold tracking-tight leading-6 text-left hover:underline">
+          class="text-neutral-800 text-md font-poppins font-semibold tracking-tight leading-6 text-left hover:underline hover:text-[#744EAA]">
           {{ article?.attributes?.title }}
         </h1>
       </div>

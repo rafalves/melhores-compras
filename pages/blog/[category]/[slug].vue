@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="max-w-[53rem]">
 
     <div v-if="!error">
       <article>

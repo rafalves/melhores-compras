@@ -1,5 +1,5 @@
 <template>
-  <nuxt-img fit="cover" class="rounded-t-lg h-[10rem] w-full" :src="imgUrl" :alt="imgAlt" />
+  <nuxt-img fit="cover" class="rounded-lg h-[10rem] w-full" :src="imgUrl" :alt="imgAlt" />
 </template>
 
 <script setup lang="ts">

@@ -3,7 +3,7 @@
     <div class="flex flex-col ">
 
       <header class="flex-1">
-        <LayoutsHeader />
+        <Header />
         <div class="h-14" />
       </header>
 
@@ -11,7 +11,7 @@
 
         <aside class="flex-1" />
 
-        <main class="flex-1 mx-auto max-w-[55rem] p-1 py-3">
+        <main class="flex-1 mx-auto max-w-[58rem] p-1 py-3">
           <slot />
         </main>
 
@@ -20,7 +20,7 @@
       </div>
 
       <footer class="flex-1">
-        <LayoutsFooter />
+        <Footer />
       </footer>
     </div>
   </div>

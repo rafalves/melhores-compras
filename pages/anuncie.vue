@@ -1,0 +1,3 @@
+<template>
+  anuncie
+</template>
