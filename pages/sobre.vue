@@ -32,10 +32,10 @@
 <script setup>
 
 useSeoMeta({
-  title: 'Sobre',
+  title: 'Sobre | Melhores Compras Online',
   twitterCard: () => 'summary',
   twitterTitle: () => 'Sobre',
-  ogUrl: 'https://www.melhores-compras.online',
+  ogUrl: 'https://www.melhores-compras.online/sobre',
   ogTitle: () => 'Sobre',
 })
 

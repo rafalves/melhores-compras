@@ -20,6 +20,4 @@ const contentQuery = '?sort[0]=label&populate[articles][sort][0]=publishedAt:des
 const { data: categoryData } = await useFetch<CategoryData>(
   `${config.public.apiBase}${contentType}${contentQuery}`,
 );
- 
-console.log(JSON.stringify(categoryData.value, null, 2)) 
 </script>

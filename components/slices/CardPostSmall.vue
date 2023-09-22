@@ -4,7 +4,7 @@
       <SlicesCardImageSmall :imgUrl="`${config.public.apiImageBase}${article?.attributes.imgBanner.data.attributes.url}`"
         :imgAlt="article?.attributes.imgBanner.data.attributes.alternativeText" />
 
-      <div class="mt-2  flex justify-start gap-6 font-poppins font-semibold text-orange-600 text-xs">
+      <div class="mt-2  flex justify-start gap-6 font-poppins font-semibold text-[#DD2E44] text-xs">
         <div class="flex gap-2">
           <Icon name="material-symbols:bookmarks-outline" color="#1E293B" size="15px" />
           <p class="hover:underline"> {{ article?.attributes.category.data.attributes.label }}</p>

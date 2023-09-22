@@ -68,7 +68,7 @@ useSeoMeta({
   twitterSite: () => '@melhorescomprs',
   twitterCreator: () => '@melhorescomprs',
   themeColor: () => '#38BDF8',
-  ogUrl: 'https://www.melhores-compras.online',
+  ogUrl: 'https://www.melhores-compras.online/policitica-de-privacidade',
   ogTitle: () => 'Política de Privacidade',
   ogDescription: () => 'Conheça nossas políticas de privacidade.',
   ogImage: () => 'https://www.melhores-compras.online/img/banner.jpg',
