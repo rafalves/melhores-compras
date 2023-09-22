@@ -18,6 +18,7 @@
         </div>
       </div>
     </div>
+    <div class="h-10" />
   </section>
 </template>
 

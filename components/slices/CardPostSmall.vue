@@ -1,6 +1,6 @@
 <template>
   <div class="rounded-lg w-[18rem] h-[14rem]">
-    <NuxtLink :to="`/blog/${article?.attributes?.category?.data.attributes.hierarchy}/${article?.attributes?.slug}`">
+    <NuxtLink :to="`/posts/${article?.attributes?.category?.data.attributes.hierarchy}/${article?.attributes?.slug}`">
       <SlicesCardImageSmall :imgUrl="`${config.public.apiImageBase}${article?.attributes.imgBanner.data.attributes.url}`"
         :imgAlt="article?.attributes.imgBanner.data.attributes.alternativeText" />
 
