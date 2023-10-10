@@ -17,10 +17,10 @@
     <div class="h-5" />
 
     <div class="justify-items-center shadow-lg bg-white p-2 md:px-5 rounded-xl font-montserrat">
-      <p class="flex justify-center md:justify-normal pt-2 pb-2 text-2xl font-poppins font-semibold text-[#744EAA]">Lista
+      <p class="flex justify-center md:justify-normal pt-2 pb-2 text-2xl font-poppins font-semibold text-[#DD2E44]">Lista
       </p>
       <div v-for="article in articleData?.data"> 
-        <p class="font-poppins hover:text-[#744EAA] hover:font-semibold hover:underline">
+        <p class="font-semibold hover:text-[#744EAA] hover:font-semibold hover:underline">
           <NuxtLink :to="`/posts/${article.attributes.category.data.attributes.hierarchy}/${article.attributes.slug}`" target="_blank">{{ useFormatData2(article.attributes.publishedAt) }} - {{ article.attributes.title }} </NuxtLink>
         </p>
         </div>
@@ -30,7 +30,6 @@
 
 <script setup lang="ts">
 import { useRuntimeConfig, useFetch } from "#imports";
-import { CategoryData } from '~/types/CategoryIndex';
 import { getAllLatestPosts } from "~/composables/api/apiQuerys";
 import { ArticlesData } from "~/types/ArticleLatest";
 const config = useRuntimeConfig()
@@ -39,9 +38,6 @@ const contentQuery = '?sort[0]=publishedAt%3Adesc&populate[0]=category&populate[
 
 const { data: articleData } = await useFetch<ArticlesData>(
   `${config.public.apiBase}${contentType}${getAllLatestPosts}`,
-); 
-const { data: articleData2 } = await useFetch<ArticlesData>(
-  `${config.public.apiBase}${contentType}${contentQuery}`,
 ); 
 
 
