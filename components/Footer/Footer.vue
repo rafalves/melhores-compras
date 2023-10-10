@@ -9,6 +9,7 @@
         <NuxtLink class="hover:text-[#744EAA]" to="/sobre">SOBRE</NuxtLink>
         <NuxtLink class="hover:text-[#744EAA]" to="/contato">CONTATO</NuxtLink>
         <NuxtLink class="hover:text-[#744EAA]" to="/politica-de-privacidade">POLÍTICA DE PRIVACIDADE</NuxtLink>
+        <NuxtLink class="hover:text-[#744EAA]" to="/politica-de-comentarios">POLÍTICA DE COMENTÁRIOS</NuxtLink>
       </nav>
       <span class="text-xs font-semibold font-mono mt-2">
         &copy; Copyright 2023 | Melhores-Compras.Online - Todos os direitos reservados
