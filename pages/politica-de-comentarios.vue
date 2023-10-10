@@ -83,19 +83,19 @@
 <script setup>
 
 useSeoMeta({
-  title: 'Políticas de Privacidade | Melhores Compras Online',
-  description: 'Conheça nossas políticas de privacidade.',
+  title: 'Políticas de Comentários | Melhores Compras Online',
+  description: 'Conheça nossas políticas de comentários.',
   twitterCard: () => 'summary',
-  twitterTitle: () => 'Política de Privacidade',
-  twitterDescription: () => 'Conheça nossas políticas de privacidade.',
+  twitterTitle: () => 'Política de Comentários',
+  twitterDescription: () => 'Conheça nossas políticas de comentários.',
   twitterImage: () => 'https://www.melhores-compras.online/img/banner.jpg',
   twitterImageAlt: () => 'Banner Melhores Compras Online',
   twitterSite: () => '@melhorescomprs',
   twitterCreator: () => '@melhorescomprs',
   themeColor: () => '#38BDF8',
-  ogUrl: 'https://www.melhores-compras.online/policitica-de-privacidade',
-  ogTitle: () => 'Política de Privacidade',
-  ogDescription: () => 'Conheça nossas políticas de privacidade.',
+  ogUrl: 'https://www.melhores-compras.online/policitica-de-comentario',
+  ogTitle: () => 'Política de Comentários',
+  ogDescription: () => 'Conheça nossas políticas de comentários.',
   ogImage: () => 'https://www.melhores-compras.online/img/banner.jpg',
   ogImageAlt: () => 'Banner Melhores Compras Online',
   ogType: 'article',
@@ -118,8 +118,8 @@ useJsonld({
           {
             "@type": "ListItem",
             "position": 2,
-            "item": "https://www.melhores-compras.online/policitica-de-privacidade",
-            "name": "Política de Privacidade"
+            "item": "https://www.melhores-compras.online/policitica-de-comentarios",
+            "name": "Política de Comentários"
           }
         ]
       },
