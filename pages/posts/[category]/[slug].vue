@@ -170,7 +170,7 @@ useHead({
   title: articleData.value?.data.attributes.title,
   titleTemplate: (titleChunk) => titleChunk ? `${titleChunk} | Melhores Compras Online` : 'Melhores Compras Online',
   meta: [
-    { name: 'description', content: seoData?.metaDescription ? seoData?.metaDescription : 'description' }
+    { name: 'description', content: seoData?.metaDescription ? seoData?.metaDescription : articleData?.value?.data.attributes.lead }
   ]
 })
 
