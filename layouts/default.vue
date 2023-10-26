@@ -11,7 +11,8 @@
 
         <aside class="flex-1" />
 
-        <main class="flex-1 mx-auto max-w-[58rem] p-1 py-3">
+        <!-- <main class="flex-1 mx-auto max-w-[58rem] p-1 py-3"> -->
+        <main class="flex-1 mx-auto p-1 py-3">
           <slot />
         </main>
 

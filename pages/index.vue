@@ -1,7 +1,8 @@
 <template>
   <section>
-      <!-- <PostBlocksLatestArticles /> -->
-      <PostBlocksMoreArticles />
-      <div class="h-10" />
+    <!-- <PostBlocksLatestArticles /> -->
+    <!-- <PostBlocksMoreArticles /> -->
+    <PostBlocksLatestOffers />
+    <div class="h-10" />
   </section>
 </template> 

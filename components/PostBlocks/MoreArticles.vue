@@ -23,13 +23,13 @@
 
 <script setup lang="ts">
 import { useRuntimeConfig, useFetch } from "#imports";
-import { getAllLatestPosts } from "~/composables/api/apiQuerys";
+import { get3LatestPosts } from "~/composables/api/apiQuerys";
 import { ArticlesData } from "~/types/ArticleLatest";
 const config = useRuntimeConfig()
 const contentType = 'articles'
 
 const { data: articleData } = await useFetch<ArticlesData>(
-  `${config.public.apiBase}${contentType}${getAllLatestPosts}`,
+  `${config.public.apiBase}${contentType}${get3LatestPosts}`,
 );
 
 </script>

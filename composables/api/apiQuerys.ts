@@ -1,3 +1,5 @@
+export const getLatestOffers: string = "https://melhores-compras.online/dev/api/offers?sort[0]=publishedAt%3Adesc&populate=image&pagination[start]=0&pagination[limit]=20"
+
 export const get3LatestPosts: string = "?sort[0]=publishedAt%3Adesc&populate[0]=category&populate[1]=category.parent&populate[2]=category.children&populate[3]=imgBanner&pagination[start]=0&pagination[limit]=3"
 
 //last 20 posts
