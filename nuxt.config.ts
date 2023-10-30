@@ -104,5 +104,8 @@ export default defineNuxtConfig({
     tagPosition: 'head',
     image: '/img/banner.jpg',
     escription: 'Melhores Compras Online | Análise, Promoção e Informação de Produtos Encontrados na Internet',
+  },
+  devServer: {
+    port: 3001
   }
 });

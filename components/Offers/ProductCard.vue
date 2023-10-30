@@ -8,7 +8,7 @@
       <NuxtLink :to="props.data.attributes.prod_link" target="_blank">
         <img sizes="(max-width: 768px) 120px, 176px"
           :src="`${baseUrlUploads}${props.data.attributes.image.data[0].attributes.url}`" :srcset="imgSrcset"
-          class="h-[120px] w-[120px] md:h-[176px] md:w-[176px] rounded-md hover:scale-125 transition duration-300 ease-in-out"
+          class="h-[120px] w-[120px] md:h-[176px] md:w-[176px] rounded-md hover:scale-125 transition duration-300 ease-in-out object-scale-down"
           loading="lazy" :alt="imgAlt">
       </NuxtLink>
     </div>
