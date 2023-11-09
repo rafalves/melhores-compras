@@ -106,6 +106,6 @@ export default defineNuxtConfig({
     escription: 'Melhores Compras Online | Análise, Promoção e Informação de Produtos Encontrados na Internet',
   },
   devServer: {
-    port: 3001
+    port: 3000
   }
 });
