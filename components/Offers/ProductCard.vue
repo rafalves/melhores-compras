@@ -46,9 +46,9 @@
     </div>
     <div class="bg-slate-200 h-[1px] mx-2 my-0 " />
     <div class="flex justify-between pt-1 mx-2 my-0 ">
-      <p class="my-0 text-slate-600 font-medium">{{ props.data.attributes.seller }}</p>
+      <p class="my-0 text-slate-600 font-medium text-sm">{{ props.data.attributes.seller }}</p>
       <div class="flex">
-        <div @click="increaseLike">
+        <div @click="increaseLike" class="hover:cursor-pointer">
           <Icon name="iconamoon:heart-duotone" @mouseover="" color="#4D5765" class="-mt-1 mr-1 animate-pulse"
             size="20px" />
         </div>
