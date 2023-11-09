@@ -1,11 +1,11 @@
 <template>
-  <div class="p-0 flex flex-col w-60 h-[390px] rounded-md shadow-md bg-white font-poppins">
+  <div class="p-0 flex flex-col w-60 h-[405px] rounded-md shadow-md bg-white font-poppins">
     <div class=" flex mx-2 gap-1">
       <Icon name="mdi:tag" class="mt-1 text-slate-600" />
       <span class="font-medium text-slate-600 line-clamp-1">{{ category(props.data.attributes.category) }}</span>
     </div>
-    <div class="flex justify-center overflow-hidden hover:opacity-80 relative h-[180px]">
-      <span class="absolute top-0 left-0 ml-2 mt-2 px-1 rounded text-white bg-orange-600 z-10">{{
+    <div class="flex justify-center overflow-hidden hover:opacity-80 relative">
+      <span class="absolute top-0 left-0  ml-2 mt-2 px-1 rounded text-white text-sm bg-orange-600 z-10">{{
         props.data.attributes.headline
       }}</span>
       <NuxtLink :to="props.data.attributes.prod_link" target="_blank">
@@ -22,16 +22,12 @@
       <span v-for="tag in tags" class="rounded-full bg-slate-300 px-2 font-light text-xs h-fit w-fit whitespace-nowrap">{{
         tag }}</span>
     </div>
-
-    <div class="mx-2 my-0">
-
-      <!-- <div class="h-5"> -->
+    <div class="mx-2 my-0 flex-1">
       <p v-if="props.data.attributes.old_price" class="font-normal text-sm my-0 text-slate-500 line-through">{{
         (props.data.attributes.old_price).toLocaleString('pt-br', {
           style: 'currency',
           currency: 'BRL'
         }) }}</p>
-      <!-- </div> -->
       <div class="flex justify-start gap-3 items-baseline">
         <span class="text-orange-600 font-semibold text-xl my-0">{{
           (props.data.attributes.price).toLocaleString('pt-br', {
@@ -46,16 +42,17 @@
             props.data.attributes.name
           }}</p>
       </NuxtLink>
-      <div class="bg-slate-200 h-[1px] " />
-      <div class="flex justify-between pt-1">
-        <p class="my-0 text-slate-600 font-medium">{{ props.data.attributes.seller }}</p>
-        <div class="flex">
-          <div @click="increaseLike">
-            <Icon name="iconamoon:heart-duotone" @mouseover="" color="#4D5765" class="-mt-1 mr-1 animate-pulse"
-              size="20px" />
-          </div>
-          <span class="font-semibold">{{ likes }}</span>
+
+    </div>
+    <div class="bg-slate-200 h-[1px] mx-2 my-0 " />
+    <div class="flex justify-between pt-1 mx-2 my-0 ">
+      <p class="my-0 text-slate-600 font-medium">{{ props.data.attributes.seller }}</p>
+      <div class="flex">
+        <div @click="increaseLike">
+          <Icon name="iconamoon:heart-duotone" @mouseover="" color="#4D5765" class="-mt-1 mr-1 animate-pulse"
+            size="20px" />
         </div>
+        <span class="font-semibold">{{ likes }}</span>
       </div>
     </div>
   </div>
