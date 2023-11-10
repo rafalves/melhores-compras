@@ -3,6 +3,6 @@
     <!-- <PostBlocksLatestArticles /> -->
     <!-- <PostBlocksMoreArticles /> -->
     <PostBlocksLatestOffers />
-    <div class="h-10" />
+    <div class="h-40" />
   </section>
 </template> 

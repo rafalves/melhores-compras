@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     "components/**/*.{vue,js,ts}",
@@ -11,7 +13,11 @@ module.exports = {
     "error.{js,ts,vue}",
     "content/**/*.md",
   ],
-  theme: {
+  theme: { 
+       screens: {
+      'tablet': '450px',
+      ...defaultTheme.screens, 
+    },
     extend: {
       fontFamily: {
         "poppins": ["Poppins", "sans-serif"],
