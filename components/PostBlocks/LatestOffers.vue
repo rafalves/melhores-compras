@@ -1,14 +1,14 @@
 <template>
-  <section class="flex flex-col tablet:mx-2 tablet::mx-0">
+  <section class="flex flex-col tablet:mx-2">
     <div class="flex justify-between">
-      <p class="flex justify-center md:justify-normal pt-2 pb-2 text-2xl font-poppins font-semibold">Últimas
+      <p class="flex justify-center md:justify-normal pt-5 pb-2 text-2xl font-poppins font-semibold">Últimas
         Ofertas
       </p>
 
     </div>
 
     <div>
-      <div class="flex gap-3 tablet:gap-6 flex-wrap justify-center  2xl:justify-normal">
+      <div class="flex gap-3 tablet:gap-3 flex-wrap justify-center  2xl:justify-normal">
 
         <OffersProductCard v-if="data" v-for="offer in data.data" :data="offer" />
 
