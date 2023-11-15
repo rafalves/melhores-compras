@@ -11,7 +11,7 @@
 const id = useRoute().params.id
 console.log(id)
 
-const { data, status } = await useFetch(`https://www.melhores-compras.online/dev/api/offers/404?populate=*`)
+const { data, status } = await useFetch(`https://www.melhores-compras.online/dev/api/offers/${id}?populate=*`)
 
 
 const img = computed(() => data.value.data.attributes.image.data[0].attributes.url ? `https://www.melhores-compras.online/dev${data.value.data.attributes.image.data[0].attributes.url}` : '')
@@ -32,7 +32,7 @@ useSeoMeta({
   twitterCard: () => 'summary_large_image',
   twitterTitle: () => data.value.data.attributes.name,
   twitterDescription: () => data.value.data.attributes.name,
-  twitterImage: () => "https://www.melhores-compras.online/dev/uploads/711eymr_SAML_AC_SL_1000_eb65a226bd.jpg",
+  twitterImage: () => img.value,
   twitterImageAlt: () => data.value.data.attributes.name,
   twitterSite: () => '@melhorescomprs',
   twitterCreator: () => '@melhorescomprs',
