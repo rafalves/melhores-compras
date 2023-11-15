@@ -22,7 +22,9 @@ useHead({
   title: data.value.data.attributes.name,
   titleTemplate: (titleChunk) => titleChunk ? `${titleChunk} | Melhores Compras Online` : 'Melhores Compras Online',
   meta: [
-    { name: 'description', content: data.value.data.attributes.name }
+    { name: 'description', content: data.value.data.attributes.name },
+    { property: 'og:image', itemprop: "image", contet: "https://melhores-compras.online/dev/uploads/711eymr_SAML_AC_SL_1000_eb65a226bd.jpg?ims=600x" },
+    { name: 'thumbnail', content: "https://melhores-compras.online/dev/uploads/711eymr_SAML_AC_SL_1000_eb65a226bd.jpg" }
   ]
 })
 
