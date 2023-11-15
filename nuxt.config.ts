@@ -30,7 +30,8 @@ export default defineNuxtConfig({
           name: "twitter:creator", content: "@melhorescomprs",
         },
         {
-          name: "twitter:image", content: "https://www.melhores-compras.online/img/banner.jpg",
+          // name: "twitter:image", content: "https://www.melhores-compras.online/img/banner.jpg",
+          name: "twitter:image", content: "https://www.melhores-compras.online/dev/uploads/711eymr_SAML_AC_SL_1000_eb65a226bd.jpg",
         },
         {
           name: "twitter:image:alt", content:
