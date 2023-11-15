@@ -32,7 +32,7 @@ useSeoMeta({
   twitterCreator: () => '@melhorescomprs',
   twitterTitle: () => data.value.data.attributes.name,
   twitterDescription: () => data.value.data.attributes.name,
-  twitterImage: () => 'https://melhores-compras.online/dev/uploads/Untitled_a9fca56a59.jpg?1',
+  twitterImage: () => 'https://melhores-compras.online/dev/uploads/Untitled_a9fca56a59.jpg?2',
   twitterImageAlt: () => data.value.data.attributes.name,
 })
 
