@@ -16,7 +16,7 @@ const { data, status } = await useFetch(`https://www.melhores-compras.online/dev
 
 const img = computed(() => data.value.data.attributes.image.data[0].attributes.url ? `https://www.melhores-compras.online/dev${data.value.data.attributes.image.data[0].attributes.url}` : '')
 
-console.log(img)
+console.log('img: ' + img.value)
 
 useHead({
   title: data.value.data.attributes.name,
@@ -27,10 +27,10 @@ useHead({
 })
 
 useSeoMeta({
-  twitterCard: () => 'summary',
+  twitterCard: () => 'summary_large_image',
   twitterTitle: () => data.value.data.attributes.name,
   twitterDescription: () => data.value.data.attributes.name,
-  twitterImage: () => img,
+  twitterImage: () => img.value,
   twitterImageAlt: () => data.value.data.attributes.name,
   twitterSite: () => '@melhorescomprs',
   twitterCreator: () => '@melhorescomprs',
@@ -38,7 +38,7 @@ useSeoMeta({
   ogUrl: 'https://www.melhores-compras.online',
   ogTitle: () => data.value.data.attributes.name,
   ogDescription: () => data.value.data.attributes.name,
-  ogImage: () => img,
+  ogImage: () => img.value,
   ogImageAlt: () => data.value.data.attributes.name,
   ogType: 'article',
 })
