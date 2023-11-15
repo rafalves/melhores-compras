@@ -30,7 +30,7 @@ useSeoMeta({
   twitterCard: () => 'summary_large_image',
   twitterTitle: () => data.value.data.attributes.name,
   twitterDescription: () => data.value.data.attributes.name,
-  twitterImage: () => `https://www.melhores-compras.online/dev${data.value.data.attributes.image.data[0].attributes.url}`,
+  twitterImage: () => "https://melhores-compras.online/dev/uploads/711eymr_SAML_AC_SL_1000_eb65a226bd.jpg",
   twitterImageAlt: () => data.value.data.attributes.name,
   twitterSite: () => '@melhorescomprs',
   twitterCreator: () => '@melhorescomprs',
