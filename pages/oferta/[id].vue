@@ -28,12 +28,12 @@ useHead({
 
 useSeoMeta({
   twitterCard: () => 'summary_large_image',
-  twitterTitle: () => data.value.data.attributes.name,
-  twitterDescription: () => data.value.data.attributes.name,
-  twitterImage: () => 'https://melhores-compras.online/dev/uploads/Untitled_a9fca56a59.jpg',
-  twitterImageAlt: () => data.value.data.attributes.name,
   twitterSite: () => '@melhorescomprs',
   twitterCreator: () => '@melhorescomprs',
+  twitterTitle: () => data.value.data.attributes.name,
+  twitterDescription: () => data.value.data.attributes.name,
+  twitterImage: () => 'https://melhores-compras.online/dev/uploads/Untitled_a9fca56a59.jpg?1',
+  twitterImageAlt: () => data.value.data.attributes.name,
 })
 
 
