@@ -30,17 +30,10 @@ useSeoMeta({
   twitterCard: () => 'summary_large_image',
   twitterTitle: () => data.value.data.attributes.name,
   twitterDescription: () => data.value.data.attributes.name,
-  twitterImage: () => img.value,
+  twitterImage: () => `https://www.melhores-compras.online/dev${data.value.data.attributes.image.data[0].attributes.url}`,
   twitterImageAlt: () => data.value.data.attributes.name,
   twitterSite: () => '@melhorescomprs',
   twitterCreator: () => '@melhorescomprs',
-  themeColor: () => '#38BDF8',
-  ogUrl: 'https://www.melhores-compras.online',
-  ogTitle: () => data.value.data.attributes.name,
-  ogDescription: () => data.value.data.attributes.name,
-  ogImage: () => img.value,
-  ogImageAlt: () => data.value.data.attributes.name,
-  ogType: 'article',
 })
 
 
