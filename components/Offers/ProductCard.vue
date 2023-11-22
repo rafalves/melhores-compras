@@ -88,7 +88,7 @@ const props = defineProps({
   data: { type: Object, required: true },
 })
 
-console.log(JSON.stringify(props.data, null, 2))
+// console.log(JSON.stringify(props.data, null, 2))
 
 const baseUrlUploads = 'https://www.melhores-compras.online/dev'
 const imgAlt = computed(() => props.data.attributes.image.data[0].attributes.alternativeText ? props.data.attributes.image.data[0].attributes.alternativeText : props.data.attributes.image.data[0].attributes.name)
@@ -107,14 +107,17 @@ async function increaseLike() {
 
 const imgSrcset = computed(() => {
   let srcset = ""
-  if (props.data.attributes.image.data[0].attributes.formats.hasOwnProperty('thumbnail')) {
+  if (props.data.attributes.image.data[0].attributes.formats && props.data.attributes.image.data[0].attributes.formats.hasOwnProperty('thumbnail')) {
     srcset += `${baseUrlUploads}${props.data.attributes.image.data[0].attributes.formats.thumbnail.url} ${props.data.attributes.image.data[0].attributes.formats.thumbnail.width}w, `
   }
-  if (props.data.attributes.image.data[0].attributes.formats.hasOwnProperty('small')) {
+  if (props.data.attributes.image.data[0].attributes.formats && props.data.attributes.image.data[0].attributes.formats.hasOwnProperty('small')) {
     srcset += `${baseUrlUploads}${props.data.attributes.image.data[0].attributes.formats.small.url} ${props.data.attributes.image.data[0].attributes.formats.small.width}w, `
   }
-  if (props.data.attributes.image.data[0].attributes.formats.hasOwnProperty('medium')) {
+  if (props.data.attributes.image.data[0].attributes.formats && props.data.attributes.image.data[0].attributes.formats.hasOwnProperty('medium')) {
     srcset += `${baseUrlUploads}${props.data.attributes.image.data[0].attributes.formats.medium.url} ${props.data.attributes.image.data[0].attributes.formats.medium.width}w, `
+  }
+  if (!props.data.attributes.image.data[0].attributes.formats) {
+    srcset += `${baseUrlUploads}${props.data.attributes.image.data[0].attributes.url} ${props.data.attributes.image.data[0].attributes.width}w, `
   }
   return srcset
 })
