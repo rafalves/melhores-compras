@@ -10,11 +10,8 @@
     <div>
       <div class="flex gap-3 tablet:gap-3 flex-wrap tablet::justify-start  2xl:justify-normal">
 
-        <ClientOnly>
-          <OffersProductCard v-if="data" v-for="offer in data.data" :data="offer" />
-        </ClientOnly>
+        <OffersProductCard v-if="data" v-for="offer in data" :data="offer" />
         <div>
-
         </div>
       </div>
 
@@ -29,65 +26,68 @@
 </template> 
 
 <script setup>
-
+const OFFSET = 16
 const infinityScroll = ref()
-const fetchingData = ref(false)
-const allDataFetched = ref(false)
+
+const data = ref([])
+const total = ref(0)
 const start = ref(0)
-const limit = ref(16)
-const offset = ref(16)
-const data = ref(null)
-const total = ref()
+const limit = ref(OFFSET)
+const fetchingData = ref(false)
+
+const { data: res, error, status } = await useFetch(`https://www.melhores-compras.online/dev/api/offers?sort[0]=publishedAt%3Adesc&populate[0]=image`,
+  {
+    query: {
+      "pagination[start]": start.value,
+      "pagination[limit]": limit.value
+    }
+  },
+
+)
+if (status.value === 'success') {
+  console.log('Dentor do sucess')
+  data.value.push(...res.value.data)
+  total.value = res.value.meta.pagination.total
+}
+
+
+async function loadData() {
+  if (start.value + limit.value < total.value) {
+    start.value += OFFSET
+    limit.value += OFFSET
+
+    const { data: response, error, status } = await useFetch(`https://www.melhores-compras.online/dev/api/offers?sort[0]=publishedAt%3Adesc&populate[0]=image`,
+      {
+        query: {
+          "pagination[start]": start.value,
+          "pagination[limit]": limit.value
+        },
+      }
+    )
+
+    if (status.value === 'success') {
+      data.value.push(...response.value.data)
+      total.value = response.value.meta.pagination.total
+    }
+  }
+  fetchingData.value = false
+}
 
 function observeLoadMore() {
   const observer = new IntersectionObserver(
     (entries) => {
       fetchingData.value = true
-
       if (entries[0].isIntersecting) {
-        fetchSolutions()
+        loadData()
       }
     },
-    { threshold: 0.1, root: null, rootMargin: '200px' }
+    {
+      threshold: 1,
+    }
   )
-
   observer.observe(infinityScroll.value)
 }
 
 onMounted(() => observeLoadMore())
-
-async function fetchSolutions() {
-  if (!allDataFetched.value) {
-    try {
-      // Init loading 
-      const { data: response, status } = await useFetch(`https://www.melhores-compras.online/dev/api/offers?sort[0]=updatedAt%3Adesc&populate[0]=image&pagination[start]=${start.value}&pagination[limit]=${limit.value}`)
-
-      if (status.value === 'success') {
-        if (!data.value) {
-          data.value = response.value
-        }
-        fetchingData.value = false
-        data.value.data.push(...response.value.data)
-        total.value = data.value.meta.pagination.total
-        if (limit.value + offset >= total.value) {
-          allDataFetched.value = true
-        }
-        limit.value += offset.value
-        start.value += offset.value
-      }
-    } catch (error) {
-      fetchingData.value = false
-      console.log(error)
-    }
-  }
-}
-
-await fetchSolutions()
-
-
-// const { data, error } = await useFetch('https://www.melhores-compras.online/dev/api/offers?sort[0]=publishedAt%3Adesc&populate[0]=image')
-
-// console.log(JSON.stringify(data.value, null, 2))
-
 
 </script>

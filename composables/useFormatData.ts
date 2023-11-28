@@ -7,14 +7,17 @@ export const useFormatData = (data: string): string => {
   dayjs.locale('pt-br');
 
   function customRelativeTime(date: string) {
-    const dataDayjs = dayjs(date); // Converter a string para um objeto Dayjs
+    const dataDayjs = dayjs(date);
 
     const now = dayjs();
+    const diffInMinutes = now.diff(dataDayjs, 'minute');
     const diffInHours = now.diff(dataDayjs, 'hour');
     const diffInDays = now.diff(dataDayjs, 'day');
 
-    if (diffInHours < 24 && now.date() === dataDayjs.date()) {
-      return 'hoje';
+    if (diffInMinutes < 60) {
+      return `${diffInMinutes} minutos atrás`;
+    } else if (diffInHours < 24) {
+      return `${diffInHours} horas atrás`;
     } else if (diffInHours < 48) {
       return '1 dia atrás';
     } else if (diffInDays < 7) {
