@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   telemetry: false,
-  modules: ["@nuxtjs/tailwindcss", "nuxt-icon", "@nuxt/image", "nuxt-schema-org", "nuxt-jsonld"],
+  modules: ["@nuxtjs/tailwindcss", "nuxt-icon", "@nuxt/image", "nuxt-schema-org", "nuxt-jsonld", 'nuxt-gtag'],
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
   app: {
@@ -80,6 +80,9 @@ export default defineNuxtConfig({
       apiImageBase: "https://www.melhores-compras.online/dev",
       urlBase: "https://www.melhores-compras.online",
     },
+  },
+  gtag: {
+    id: 'G-5FL944BJVT',
   },
   //@nuxt-image
   image: {

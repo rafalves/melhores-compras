@@ -8,11 +8,8 @@
     </div>
 
     <div>
-      <div class="flex gap-3 tablet:gap-3 flex-wrap tablet::justify-start  2xl:justify-normal">
-
+      <div class="flex gap-3 tablet:gap-3 flex-wrap tablet:justify-start  2xl:justify-normal tablet:max-w-[1000px]">
         <OffersProductCard v-if="data" v-for="offer in data" :data="offer" />
-        <div>
-        </div>
       </div>
 
     </div>
@@ -35,17 +32,8 @@ const start = ref(0)
 const limit = ref(OFFSET)
 const fetchingData = ref(false)
 
-const { data: res, error, status } = await useFetch(`https://www.melhores-compras.online/dev/api/offers?sort[0]=publishedAt%3Adesc&populate[0]=image`,
-  {
-    query: {
-      "pagination[start]": start.value,
-      "pagination[limit]": limit.value
-    }
-  },
-
-)
+const { data: res, error, status } = await useFetch(`https://www.melhores-compras.online/dev/api/offers?sort[0]=updatedAt:desc&populate[0]=image&pagination[start]=0&pagination[limit]=16`)
 if (status.value === 'success') {
-  console.log('Dentor do sucess')
   data.value.push(...res.value.data)
   total.value = res.value.meta.pagination.total
 }
@@ -56,16 +44,18 @@ async function loadData() {
     start.value += OFFSET
     limit.value += OFFSET
 
-    const { data: response, error, status } = await useFetch(`https://www.melhores-compras.online/dev/api/offers?sort[0]=publishedAt%3Adesc&populate[0]=image`,
-      {
-        query: {
-          "pagination[start]": start.value,
-          "pagination[limit]": limit.value
-        },
-      }
+    const { data: response, status } = await useFetch(`https://www.melhores-compras.online/dev/api/offers?sort[0]=updatedAt:desc&populate[0]=image&pagination[start]=${start.value}&pagination[limit]=${limit.value}`
+      // ,
+      // {
+      //   query: {
+      //     "pagination[start]": start.value,
+      //     "pagination[limit]": limit.value
+      //   },
+      // }
     )
 
     if (status.value === 'success') {
+      // console.log(JSON.stringify(response.value.data, null, 2))
       data.value.push(...response.value.data)
       total.value = response.value.meta.pagination.total
     }

@@ -30,7 +30,7 @@
 
       <div class="order-3 tablet:order-2 w-screen tablet:w-full my-1 tablet:my-0">
 
-        <div v-if="tags" class="flex gap-2 mx-1 flex-wrap tablet:max-h-[40px] overflow-hidden">
+        <div v-if="tags" class="flex gap-2 mx-1 flex-wrap max-h-[40px] overflow-hidden">
           <span v-for="tag in tags"
             class="rounded-full bg-slate-300 px-2 font-light text-xs h-fit w-fit whitespace-nowrap">{{
               tag }}</span>
