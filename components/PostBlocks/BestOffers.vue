@@ -29,7 +29,7 @@ const data = ref([])
 const total = ref(0)
 const fetchingData = ref(false)
 
-const { data: res, status } = await useFetch(`https://www.melhores-compras.online/dev/api/offers?sort[0]=updatedAt:desc&populate[0]=image&pagination[start]=0&pagination[limit]=5`)
+const { data: res, status } = await useFetch(`https://www.melhores-compras.online/dev/api/offers?filters[bestOffer][$eq]=true&sort[0]=updatedAt:desc&populate[0]=image&pagination[start]=0&pagination[limit]=5`)
 if (status.value === 'success') {
   data.value.push(...res.value.data)
   total.value = res.value.meta.pagination.total

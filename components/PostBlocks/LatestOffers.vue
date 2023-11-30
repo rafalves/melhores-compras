@@ -23,16 +23,17 @@
 </template> 
 
 <script setup>
-const OFFSET = 16
+const OFFSET = 50
 const infinityScroll = ref()
 
 const data = ref([])
-const total = ref(0)
-const start = ref(0)
+const total = ref(50)
+const start = ref(50)
 const limit = ref(OFFSET)
 const fetchingData = ref(false)
 
-const { data: res, error, status } = await useFetch(`https://www.melhores-compras.online/dev/api/offers?sort[0]=updatedAt:desc&populate[0]=image&pagination[start]=0&pagination[limit]=16`)
+const { data: res, error, status } = await useFetch('https://www.melhores-compras.online/dev/api/offers?sort[0]=updatedAt:desc&populate[0]=image&pagination[start]=0&pagination[limit]=50')
+// const { data: res, error, status } = await useFetch(`https://www.melhores-compras.online/dev/api/offers?sort[0]=updatedAt:desc&populate[0]=image&pagination[start]=0&pagination[limit]=16`)
 if (status.value === 'success') {
   data.value.push(...res.value.data)
   total.value = res.value.meta.pagination.total
